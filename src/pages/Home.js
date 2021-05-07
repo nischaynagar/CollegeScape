@@ -1,7 +1,7 @@
 import {React} from "react";
 import { useHistory } from "react-router-dom";
 import design from "../Components/HomeComponents/homeComponents.module.css";
-import { styled } from '@material-ui/core/styles';
+import { styled } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import featureImg1 from '../Components/HomeComponents/images/feature-1.svg'
 import teamIllustration from '../Components/HomeComponents/images/team-illu.svg'
@@ -32,22 +32,22 @@ function Home() {
     textTransform: "none",
     fontFamily: "Montserrat",
     // transition: "all 0.9s ease-in-out",
-    background: 'linear-gradient(180deg, rgba(255, 139, 139, 0.68) 0%, #B391FF 100%)',
+    background:
+      "linear-gradient(180deg, rgba(255, 139, 139, 0.68) 0%, #B391FF 100%)",
     // border: 0,
     // borderRadius: 3,
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
     borderRadius: "10px",
     height: 48,
-    padding: '0 30px',
-        "&:hover": {
-        background: 'linear-gradient(180deg, rgba(255, 175, 175, 0.68) 0%, #CCB6FF 100%)'
-        }
+    padding: "0 30px",
+    "&:hover": {
+      background:
+        "linear-gradient(180deg, rgba(255, 175, 175, 0.68) 0%, #CCB6FF 100%)",
+    },
   });
 
+  let history = useHistory();
 
-
-
-  
   return (
        <div className={design.main} id="features">
             <div className={design.NavContainer}>
