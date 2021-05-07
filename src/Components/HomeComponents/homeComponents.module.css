@@ -1,5 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
 .main {
-  background-color: black;
+  background-color: #F4F5F9;
+  width: 100%;
+}
+
+.MobileNav {
+  display: none;
+}
+
+
+
+
+
+
+.NavContainer {
+
+  z-index: 10;
+  height: 8vh;
+  position:fixed;
+  background-color: #E2E7FE;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(8,1fr);
+  gap: 20px;
+  padding: 20px 40px;
+  padding-top: 30px;
+  grid-template-areas: "logo . navButton1 navButton2 navButton3 . signup login";
+}
+
+.body {
+  background-color: #F4F5F9;
+  width: 100%;
+  padding-top: 17vh;
+}
+.NavLogo {
+  font-family: 'Allura', cursive;
+  margin-top: 10px;
+  margin-left: 10px;
+  grid-area: logo;
+  font-size: 2.5rem;
+}
+
+
+.NavButton1 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 4rem;
+  grid-area: navButton1;
+  height: 3rem;
+}
+
+.NavButton2 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  grid-area: navButton2;
+  height: 3rem;
+}
+
+.NavButton3 {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  max-lines: 1;
+  grid-area: navButton3;
+  height: 3rem;
+}
+
+.NavSignUp {
+  height: 3rem;
+  grid-area: signup;
+}
+
+.NavLogin {
+  /* color: #3600b5; */
+  height: 3rem;
+  grid-area: login;
+}
+
+
+.FeaturesContainer {
+  padding: 30px;
+  text-align: center;
+  justify-content: center;
+}
+
+.FeatureTitle {
+  /* padding: 20px; */
+  font-weight: 500;  
+  font-size: 2.5rem;
+}
+
+.FeatureSubtitle {
+  padding: 20px;
+  font-weight: 300;  
+  font-size: 1.5rem;
+}
+
+.FeatureImage {
+  padding: 20px;
+  width: 45vw;
+  margin: auto;
+}
+
+.TeamContainer {
+  background-color: #E2E7FE;
   width: 100vw;
-  height: 100vh;
+  height: fit-content;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: 0px 0px;
+  display: grid;
+  grid-template-columns: 40vw 70vw;
+  grid-template-areas: "TeamTitleContainer TeamInfoContainer";
+}
+
+.TeamTitleContainer {
+  text-align: center;
+  justify-content: center;
+}
+
+.TeamHeading {
+  padding: 20px;
+  font-weight: 500;  
+  font-size: 2.5rem;
+}
+
+.TeamTeamHeadingBold {
+  font-weight: 600;
+}
+
+.TeamInfoContainer {
+  transform: rotate(10deg);
+  margin-right: 10vw;
+  line-height: 0;
+  font-size: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  grid-area: TeamInfoContainer;
+}
+
+
+
+.TeamMemberWrapper {
+  width: fit-content;
+  height: fit-content;
+  flex: 1;
+  margin: 3vh 4vw;
+  border-radius: 1rem;
+  line-height: 0;
+  font-size: 0;
+  display: inline-block;
+  position: relative;
+}
+
+.TeamMember {
+  width:10vw;
+  border-radius: 1rem;
+  transition: opacity .5s ease-in-out;
+  display: inline-block;
+  padding: 0;
+  margin: 0rem;
+  border: 1.3rem solid;
+}
+
+.TeamMember:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.TeamMember:hover {
+  transition: opacity .5s ease-in-out;
+  opacity: 0.2;
+  
+}
+
+.TeamMemberWrapper1 {
+  background-color: #FFB0B0;
+}
+
+.TeamMember1 {
+  border-color:  #FFB0B0;
+}
+
+
+.TeamMemberWrapper2 {
+  background-color: #F0FFE9;
+}
+
+.TeamMember2 {
+  border-color: #F0FFE9;
+}
+
+.TeamMemberWrapper3 {
+  background-color: #FFF1D7;
+}
+
+.TeamMember3 {
+  border-color: #FFF1D7;
+}
+
+.TeamMemberWrapper4 {
+  background-color: #FED9FF;
+}
+
+.TeamMember4 {
+  border-color: #FED9FF;
+}
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(29, 106, 154, 0.72);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity .2s, visibility .2s;
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+  .body {
+    background-color: #F4F5F9;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .NavContainer {
+    display: none;
+  }
+
+
+  .MobileNav {
+    width: 100vw;
+    z-index: 10;
+    position:fixed;
+    background-color: #E2E7FE;
+    display: flex;
+    align-items: center;
+    grid-template-rows: auto;
+    gap: 20px;
+    padding-top: 10px;
+    grid-template-areas: 'NavLogo',
+    'MobileNavMiddle',
+    'MobileNavEnd';
+  }
+
+  .MNavLogo {
+    font-family: 'Allura', cursive;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 4rem;
+    width: 100vw;
+    grid-area: NavLogo;
+    align-items: center;
+  }
+
+  .MobileNavMiddle {
+    width: 100vw;
+    grid-area: MobileNavMiddle;
+    align-items: center;
+  }
+
+  .MobileNavEnd{
+    width: 100vw;
+    grid-area: MobileNavEnd;
+    align-items: center;
+  }
+
+  
+  
 }
