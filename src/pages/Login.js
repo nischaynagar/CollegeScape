@@ -1,6 +1,5 @@
 import React from "react";
 import design from "../Components/LoginComponents/loginComponents.module.css";
-import logo from "../Components/LoginComponents/images/movietime.jpg";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";

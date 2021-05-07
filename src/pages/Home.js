@@ -13,12 +13,7 @@ import { Link} from "react-scroll";
 
 function Home() {
 
-    const history = useHistory();
-
-    const routeChange = () =>{ 
-      let path = `/login`; 
-      history.push(path);
-    }
+     let history = useHistory();
 
 
     const ButtonStyle = {fontSize: "1.3vw", fontWeight: "bold", textTransform: "none", fontFamily: "Montserrat", borderRadius: "10px"};
@@ -46,7 +41,6 @@ function Home() {
     },
   });
 
-  let history = useHistory();
 
   return (
        <div className={design.main} id="features">
@@ -95,7 +89,7 @@ function Home() {
                  <Button className={design.NavSignUp} style={ButtonStyle}>
                       Sign Up
                  </Button>
-                 <LoginButton className={design.NavLogin} onClick={routeChange}>Log In</LoginButton>
+                 <LoginButton className={design.NavLogin} onClick={() => history.push("/login")}>Log In</LoginButton>
             </div>
 
             <div className={design.MobileNav}>
@@ -104,7 +98,7 @@ function Home() {
                       <Button className={design.MNavSignUp} style={MButtonStyle} >
                            Sign Up
                       </Button>
-                      <LoginButton className={design.MNavLogin} onClick={routeChange} style={{fontSize:"2.5vw"}}>
+                      <LoginButton className={design.MNavLogin} onClick={() => history.push("/login")} style={{fontSize:"2.5vw"}}>
                            Log In
                       </LoginButton>
                  </div>
