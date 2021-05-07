@@ -9,11 +9,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
       margin: theme.spacing(1),
-      width: "310px",
+      width: "55vw",
+      maxWidth: "310px",
       "& .MuiInput-underline:after": {
         borderBottomColor: "black",
       },
     },
+    display: "flex",
+    gap: "10px",
+    flexDirection: "column",
   },
 }));
 
@@ -23,10 +27,11 @@ const StyledButton = withStyles({
     borderRadius: 7,
     border: 0,
     color: "white",
-    width: 310,
+    width: "55vw",
+    maxWidth: 310,
     height: 35,
-    padding: "0 30px",
-    boxShadow: "grey",
+    margin: "30px 0 10px 0",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     "&:hover": {
       background: "black",
     },
@@ -40,27 +45,23 @@ export default function Login() {
   const classes = useStyles();
 
   return (
-    <div className={design.main}>
-      <div className={design.LoginBox}>
-        <div className={design.column1}>
-          <p className={design.heading}>Login</p>
-          <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Email" />
-            <TextField
-              id="standard-password-input"
-              label="Password"
-              type="password"
-            />
-          </form>
-          <StyledButton className={design.submitbutton}>Sign up</StyledButton>
-          <p className={design.foot}>
-            Forgot password? <div className={design.link}>click here</div>
-          </p>
-        </div>
-        <div className={design.column2}>
-          <img src={logo} alt="movietime" className={design.logo1}></img>
-        </div>
+    <div className={design.LoginBox}>
+      <div className={design.column1}>
+        <p className={design.heading}>Login</p>
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField id="standard-basic" label="Email" />
+          <TextField
+            id="standard-password-input"
+            label="Password"
+            type="password"
+          />
+        </form>
+        <StyledButton className={design.submitbutton}>Login</StyledButton>
+        <p className={design.foot}>
+          Forgot password? <div className={design.link}>click here</div>
+        </p>
       </div>
+      <div className={design.column2}></div>
     </div>
   );
 }
