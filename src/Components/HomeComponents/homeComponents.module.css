@@ -10,13 +10,14 @@
 }
 
 
-
+.MobileNavMiddle {
+  display: none;
+}
 
 
 
 .NavContainer {
-
-  z-index: 10;
+  z-index: 100;
   height: 8vh;
   position:fixed;
   background-color: #E2E7FE;
@@ -227,10 +228,74 @@
 }
 
 
+@media screen and (max-width: 1220px) {
+
+ 
+  .NavContainer {
+    z-index: 15;
+    height: 8vh;
+    position:fixed;
+    background-color: #E2E7FE;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 20vw 3vw 10vw 8vw 10vw 2vw 13vw 14vw 1vw;
+    gap: 20px;
+    padding: 20px 40px;
+    padding-top: 25px;
+    grid-template-areas: "logo . navButton1 navButton2 navButton3 . signup login .";
+  }
+
+  .NavLogo {
+    margin-top: 8px;
+  }
+  
+
+  .TeamContainer {
+    background-color: #E2E7FE;
+    width: 100vw;
+    margin: 0px 0px;
+    display: block;
+    padding-top: 6vh;
+  }
+
+  .TeamTitleContainer {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .TeamInfoContainer {
+    transform: rotate(0deg);
+    margin: 0;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    grid-area: TeamInfoContainer;
+    padding-top: 6vh;
+    margin-top: 6vh;
+  }
+
+  .TeamMember {
+  width:17vw;
+  border-radius: 1rem;
+  transition: opacity .5s ease-in-out;
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  margin: 0rem;
+  border-width: 0.8rem;
+  z-index: 0;
+}
+
+
+  
+}
 
 
 
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 960px) {
 
   .body {
     background-color: #F4F5F9;
@@ -242,44 +307,81 @@
     display: none;
   }
 
+  /* .MobileNavMiddle {
+    width: 100vw;
+    height: 10vh;
+    display: grid;
+    position: relative;
+    grid-area: MobileNavMiddle;
+    grid-template-areas: "MNavButton1 MNavButton2 MNavButton3";
+    align-items: center;
+    z-index: 10;
+  }
+
+  .MNavButton1 {
+    grid-area: MNavButton1;
+  }
+
+  .MNavButton2 {
+    grid-area: MNavButton2;
+  }
+
+
+  .MNavButton3 {
+    grid-area: MNavButton3;
+  } */
+
 
   .MobileNav {
     width: 100vw;
-    z-index: 10;
+    height: 16vh;
     position:fixed;
     background-color: #E2E7FE;
-    display: flex;
+    display: grid;
     align-items: center;
-    grid-template-rows: auto;
+    justify-content: center;
+    grid-template-columns: 45vw 55vw;
+    grid-template-rows: 10vh 10vh;
     gap: 20px;
-    padding-top: 10px;
-    grid-template-areas: 'NavLogo',
-    'MobileNavMiddle',
-    'MobileNavEnd';
+    grid-template-areas: "NavLogo MobileNavEnd";
+    z-index: 100;
   }
 
   .MNavLogo {
     font-family: 'Allura', cursive;
-    margin-top: 5px;
-    margin-left: 5px;
-    font-size: 4rem;
+    font-size: 2.4rem;
     width: 100vw;
     grid-area: NavLogo;
     align-items: center;
-  }
-
-  .MobileNavMiddle {
-    width: 100vw;
-    grid-area: MobileNavMiddle;
-    align-items: center;
-  }
-
-  .MobileNavEnd{
-    width: 100vw;
-    grid-area: MobileNavEnd;
-    align-items: center;
+    padding-left: 6vw;
+    padding-top: 5.5vh;
   }
 
   
+
+  .MobileNavEnd{
+    padding-top: 5.5vh;
+    position: relative;
+    margin: 0;
+    padding-right: 10vw;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-areas: 'MNavSignUp MNavSignUp MNavLogin MNavLogin MNavLogin';
+    grid-area: MobileNavEnd;
+    gap: 5vw;
+  }
+
+  .MNavSignUp {
+    font-size: 2rem;
+    grid-area: MNavSignUp;
+  }
+
+  .MNavLogin {
+    grid-area: MNavLogin;
+  }  
+
+  .body {
+    padding-top: 20vh;
+  }
   
 }
