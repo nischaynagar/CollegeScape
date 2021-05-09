@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
 
 .main {
+  position: relative;
+  justify-content: center;
+  align-items:  center;
   background-color: #F4F5F9;
   width: 100%;
 }
@@ -12,6 +17,17 @@
 
 .MobileNavMiddle {
   display: none;
+}
+
+.copyright {
+  opacity: 0.55;
+  font-family: 'Poppins', sans-serif;;
+  background-color: #E2E7FE;
+  padding: 1.7vw;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -228,8 +244,39 @@
 }
 
 
+.contact {
+  margin: 4vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactlogo {
+  width: 3vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+
+.contactlogo:hover {
+  transition: 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+
+
 @media screen and (max-width: 1220px) {
 
+  .copyright {
+    font-size: 21px;
+  }
+
+
+  .contactlogo {
+    width: 4vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
  
   .NavContainer {
     z-index: 15;
@@ -296,6 +343,16 @@
 
 
 @media screen and (max-width: 960px) {
+
+  .copyright {
+    font-size: 18px;
+  }
+
+  .contactlogo {
+    width: 5vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
 
   .body {
     background-color: #F4F5F9;

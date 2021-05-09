@@ -9,6 +9,9 @@ import team1 from '../Components/HomeComponents/images/team-1.png'
 import team2 from '../Components/HomeComponents/images/team-2.png'
 import team3 from '../Components/HomeComponents/images/team-3.png'
 import team4 from '../Components/HomeComponents/images/team-4.png'
+import facebook from '../Components/HomeComponents/images/facebook.svg'
+import twitter from '../Components/HomeComponents/images/twitter.svg'
+import instagram from '../Components/HomeComponents/images/instagram.svg'
 import { Link} from "react-scroll";
 
 function Home() {
@@ -77,7 +80,7 @@ function Home() {
                       className={design.NavButton3}
                       style={ButtonStyle}
                       activeClass="active"
-                      to="team"
+                      to="contact"
                       spy={true}
                       smooth={true}
                       duration={1000}
@@ -140,7 +143,7 @@ function Home() {
                            className={design.MNavButton3}
                            style={ButtonStyle}
                            activeClass="active"
-                           to="team"
+                           to="contact"
                            spy={true}
                            smooth={true}
                            duration={1000}
@@ -240,6 +243,26 @@ function Home() {
                       </div>
                  </div>
             </div>
+
+            <div className={design.contact} id="contact">
+               <img
+                    src={facebook}
+                    alt="facebook"
+                    className={design.contactlogo}
+               />
+               <img
+                    src={twitter}
+                    alt="facebook"
+                    className={design.contactlogo}
+               />
+               <img
+                    src={instagram}
+                    alt="facebook"
+                    className={design.contactlogo}
+               />
+            </div>
+
+            <div className={design.copyright}>Copyright©2021 CollegeScape, Inc.</div>
        </div>
   );
 }
