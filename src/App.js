@@ -24,7 +24,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path="/dashboard" exact component={Dashboard}></Route>
+          <Route path="/dashboard" component={Dashboard}></Route>
           <Route path="/login" exact component={Login}></Route>
           <Route path="/" exact component={Home}></Route>
         </Switch>
