@@ -24,13 +24,39 @@ function Appbox() {
 
         <div className={design.rowbox}>
           <div className={design.statbox}>
-            <p>Number of Students</p>
+            <p className={design.statname}>Number of Students</p>
+            <div className={design.outercircle}>
+              <div className={design.innercircle}>
+                <p className={design.data}>25</p>
+              </div>
+            </div>
           </div>
-          <div className={design.statbox}></div>
+          <div className={design.statbox}>
+            <p className={design.statname}>Number of Faculties</p>
+            <div className={design.outercircle}>
+              <div className={design.innercircle}>
+                <p className={design.data}>1</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className={design.rowbox}>
-          <div className={design.statbox}></div>
-          <div className={design.statbox}></div>
+          <div className={design.statbox}>
+            <p className={design.statname}>Number of Courses</p>
+            <div className={design.outercircle}>
+              <div className={design.innercircle}>
+                <p className={design.data}>15</p>
+              </div>
+            </div>
+          </div>
+          <div className={design.statbox}>
+            <p className={design.statname}>Number of Working Days</p>
+            <div className={design.outercircle}>
+              <div className={design.innercircle}>
+                <p className={design.data}>365</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

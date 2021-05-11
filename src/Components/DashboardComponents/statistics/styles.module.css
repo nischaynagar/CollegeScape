@@ -98,15 +98,41 @@
     margin-left: 5vw;
     margin-top: 5vh;
 }
+.statname{
+    font-size: 1vw;
+    font-weight: bold;
+}
 .statbox{
     width: 15vw;
-    height: 25vh;
+    height: 30vh;
     margin: 5vh;
     border-radius: 23px;
     margin-left: 4vw;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4vw;
 }
 .rowbox{
     display: flex;
     flex-direction: row;
+}
+.outercircle{
+    background-image: linear-gradient(151.11deg, #FF6B81 12.02%, #4776FF 96.09%);
+    border-radius: 100%;
+    width: 9vw;
+    height: 18vh;
+}
+.innercircle{
+    background-color: white;
+    width: 7vw;
+    height: 14vh;
+    border-radius: 100%;
+    margin: 1vw;
+}
+.data{
+    position: relative;
+    top: 5vh;
+    left: 3vw;
+    font-weight: bold;
 }
