@@ -1,6 +1,5 @@
 import React from 'react';
 import design from './loginComponents.module.css';
-import logo from './images/movietime.jpg';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -70,7 +69,7 @@ function AppContainer() {
 
             </div>
             <div className="column">
-                <img src={logo} alt="movietime" className={design.logo1}></img>
+                <h1>ok</h1>
             </div>
         </div>
     )
