@@ -1,67 +1,89 @@
-.ContainerBox {
-    width: 1000px;
-    height: 800px;
-    display: flex;
-    flex-direction: row;
-    border-radius: 19px;
-    box-shadow: 0 0 49px rgba(15, 15, 15, 0.28);
-    background-color: #fff;
-    position: relative;
-    justify-content: space-evenly;
+.LoginBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  max-width: 900px;
+  height: 490px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
 }
 
-.column {
-    width: 50%;
-    justify-content: center;
-    align-items: center;
+.ContainerBox {
+  width: 1000px;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 19px;
+  box-shadow: 0 0 49px rgba(15, 15, 15, 0.28);
+  background-color: #fff;
+  justify-content: space-evenly;
 }
 
 .row {
-    display: table;
-}
-
-.logo1 {
-    width: 1000;
-    height: 100%;
-    border-radius: 0px 19px 19px 0px;
+  display: table;
 }
 
 .heading {
-    position: relative;
-    left: 60px;
-    top: 80px;
-    width: 192px;
-    height: 29px;
-    letter-spacing: 1px;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    color: rgba(0, 0, 0, 0.56);
+  width: 100%;
+  text-align: center;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  color: rgba(0, 0, 0, 0.56);
 }
 
 .submitbutton {
-    position: relative;
-    top: 30px;
-    left: 5px;
 }
 
 .link {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    position: relative;
-    left: 10px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  left: 10px;
+  cursor: pointer;
 }
 
 .foot {
-    position: relative;
-    left: 40px;
-    font-family: 'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    line-height: 12px;
-    font-size: 12px;
-    color: grey;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  color: grey;
+  display: flex;
+}
+
+.column1 {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.column2 {
+  width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(https://images.pexels.com/photos/5082580/pexels-photo-5082580.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+
+@media only screen and (max-width: 1095px) {
+  .column2 {
+    display: none;
+  }
+  .column1 {
+    width: 100%;
+  }
 }
