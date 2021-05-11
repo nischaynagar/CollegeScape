@@ -3,6 +3,12 @@ import design from "../Components/LoginComponents/loginComponents.module.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +47,7 @@ const StyledButton = withStyles({
 })(Button);
 
 export default function Login() {
+  const history = useHistory();
   const classes = useStyles();
 
   return (
@@ -55,7 +62,12 @@ export default function Login() {
             type="password"
           />
         </form>
-        <StyledButton className={design.submitbutton}>Login</StyledButton>
+        <StyledButton
+          className={design.submitbutton}
+          onClick={() => history.push("/dashboard")}
+        >
+          Login
+        </StyledButton>
         <p className={design.foot}>
           Forgot password? <div className={design.link}>click here</div>
         </p>
