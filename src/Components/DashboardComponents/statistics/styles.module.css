@@ -8,21 +8,19 @@
     height: 90vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 49px rgba(15, 15, 15, 0.28);
     border-radius: 19px;
-    margin-right: 9vw;
+    margin-right: 2vw;
     margin-top: 10vh;
-    margin-left: -16vw;
+    margin-left: 3vw;
 }
 
 .overview{
-    width: 50vw;
+    width: 60vw;
     height: 90vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 49px rgba(15, 15, 15, 0.28);
     border-radius: 19px;
-    margin-top: 10vh;
+    margin-top: 6vh;
     background-color: #f4f9fd;
 }
 
