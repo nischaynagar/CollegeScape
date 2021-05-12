@@ -1,0 +1,151 @@
+.overview{
+    width: 60vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 19px;
+    margin-top: 6vh;
+    background-color: #f4f9fd;
+}
+.optionname{
+    margin-left: 2vw;
+    color: #C3CEE4
+}
+
+.searchmenu{
+    display: flex;
+    flex-direction: row;
+    margin: 2vw;
+}
+.title{
+    margin-left: 2vw;
+    margin-top: -1vw; 
+    font-size: 2vw;
+    font-weight: bold;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+}
+.sideback{
+    display: flex;
+    flex-direction: row;
+    margin-left: 18vw;
+    position: relative;
+    bottom: 2vh;
+    position: relative;
+    left: 7vw;
+    color: #834BFF;
+    font-size: 0.8vw;
+    font-weight: bold;
+}
+.coursebox{
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 21px;
+    background-color: #2F2E41;
+    margin-left: 5vw;
+}
+.coursename{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin-left: 2vw;
+    margin-top: 5vh;
+}
+.faculty{
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin-left: 2vw;
+}
+.semester{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin-left: 2vw;
+}
+
+.resultbox{
+    display: flex;
+    flex-direction: row;
+}
+
+.outercircle{
+    background-image: linear-gradient(151.11deg, #FF6B81 12.02%, #4776FF 96.09%);
+    border-radius: 100%;
+    width: 9vw;
+    height: 18vh;
+    margin-left: 2vw;
+}
+.innercircle{
+    background-color: white;
+    width: 7vw;
+    height: 14vh;
+    border-radius: 100%;
+    margin: 1vw;
+    position: relative;
+    top: 1vw;
+}
+.data{
+    position: relative;
+    top: 5vh;
+    left: 2.5vw;
+    font-weight: bold;
+}
+.attendencetitle{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    margin-left: 3.5vw;
+    margin-top: 5vh;
+}
+.cgpabox{
+    margin-top: 5vh;
+    margin-left: 14vw;
+}
+.gradebox{
+    display: flex;
+    flex-direction: row;
+}
+
+.firstone{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.secondone{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;    
+    color: #FFFFFF;
+    margin-left: 4vw;
+}
+.secondone1{
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;    
+    color: #FFFFFF;
+    margin-left: 9vw;
+}
