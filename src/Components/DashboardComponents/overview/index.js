@@ -10,7 +10,7 @@ import admin from "./images/admin.svg";
 import searchbar from "./images/searchbar.svg";
 import mainpic from "./images/mainpic.svg";
 
-function Appbox() {
+function Overview() {
   return (
     <>
       <div className={design.overview}>
@@ -29,4 +29,4 @@ function Appbox() {
   );
 }
 
-export default Appbox;
+export default Overview;
