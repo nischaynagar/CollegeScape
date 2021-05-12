@@ -33,8 +33,6 @@
   font-style: normal;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.48);
-  margin-top: -1vh;
-  margin-left: 2vw;
 }
 
 .profile {
@@ -99,4 +97,12 @@
   font-size: 2vw;
   color: #99adc1;
   margin-left: 1vw;
+}
+
+.profPicandName {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
 }

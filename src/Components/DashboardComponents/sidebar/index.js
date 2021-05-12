@@ -14,10 +14,12 @@ import mainpic from "./images/mainpic.svg";
 function Sidebar() {
   return (
     <div className={design.leftbar}>
-      <div className={design.profile}>
-        <img src={mainpic} alt="hello" className={design.mainphoto}></img>
+      <div className={design.profPicandName}>
+        <div className={design.profile}>
+          <img src={mainpic} alt="hello" className={design.mainphoto}></img>
+        </div>
+        <p className={design.profileName}>Bhole</p>
       </div>
-      <p className={design.profileName}> Bhole</p>
       <div className={design.choices}>
         <Link to="/dashboard">
           <div className={design.option}>
