@@ -17,7 +17,7 @@ function Sidebar() {
       <div className={design.profile}>
         <img src={mainpic} alt="hello" className={design.mainphoto}></img>
       </div>
-      <p className={design.profileName}>Chodu Bhole</p>
+      <p className={design.profileName}> Bhole</p>
       <div className={design.choices}>
         <Link to="/dashboard">
           <div className={design.option}>

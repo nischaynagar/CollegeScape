@@ -49,7 +49,7 @@ function AppBox() {
           <div className={design.studentbox}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019232</p>
-            <p className={design.name}>Chodu Bholu</p>
+            <p className={design.name}> Bholu</p>
           </div>
         </div>
       </div>

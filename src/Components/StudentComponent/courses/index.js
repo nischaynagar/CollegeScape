@@ -15,7 +15,7 @@ function AppBox() {
           <p className={design.optionname}>Search</p>
         </div>
         <div className={design.heading}>
-          <p className={design.title}>Chodu Bhole's Courses</p>
+          <p className={design.title}> Bhole's Courses</p>
           <div className={design.sideback}>
             <img src={arrow} alt="hello"></img>
             <p className={design.back}>Move back</p>
