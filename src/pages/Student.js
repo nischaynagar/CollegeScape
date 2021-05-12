@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Sidebar from "../Components/DashboardComponents/sidebar/index.js";
 import Studentcourse from "../Components/StudentComponent/studentcourse";
 import Studentcourses from "../Components/StudentComponent/courses";
