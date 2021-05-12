@@ -1,0 +1,83 @@
+.overview{
+    width: 60vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 19px;
+    margin-top: 6vh;
+    background-color: #f4f9fd;
+}
+.optionname{
+    margin-left: 2vw;
+    color: #C3CEE4
+}
+
+.searchmenu{
+    display: flex;
+    flex-direction: row;
+    margin: 2vw;
+}
+.title{
+    margin-left: 2vw;
+    margin-top: -1vw; 
+    font-size: 2vw;
+    font-weight: bold;
+}
+.heading{
+    display: flex;
+    flex-direction: row;
+}
+.addbutton{
+    position: relative;
+    left: 30vw;
+    bottom: 2vh;
+    border-radius: 9px;
+}
+.studentbox{
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    height: 10vh;
+    background-color: #2F2E41;
+    border-radius: 13px;
+    margin-bottom: 2vw;
+}
+.studentbranch{
+    margin-left: 5vw;
+}
+.branchname{
+    font-family: 'Poppins, sans-serif';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: capitalize;
+    color: #99ADC1;
+}
+.photo{
+    width: 4vw;
+    height: 10vh;
+    margin-left: 1vw;
+}
+.id{
+    margin-top: 2vw;
+    margin-left: 2vw;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.name{
+    margin-top: 2vw;
+    margin-left: 28vw;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
