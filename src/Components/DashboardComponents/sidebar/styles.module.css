@@ -60,9 +60,14 @@
   flex-direction: row;
   align-items: baseline;
 }
-.optionnames {
+.optionnamesInactive {
   margin-left: 2vw;
   color: #c3cee4;
+  font-weight: bold;
+}
+.optionnamesActive {
+  margin-left: 2vw;
+  color: #5f79fc;
   font-weight: bold;
 }
 .optionname {
@@ -105,4 +110,12 @@
   width: fit-content;
   justify-content: center;
   align-items: center;
+}
+
+.active {
+  fill: #5f79fc;
+}
+
+.icons {
+  fill: #99adc1;
 }
