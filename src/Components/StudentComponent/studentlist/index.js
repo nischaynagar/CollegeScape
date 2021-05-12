@@ -20,7 +20,7 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-function AppBox() {
+function StudentList() {
   return (
     <div>
       <div className={design.overview}>
@@ -57,4 +57,4 @@ function AppBox() {
   );
 }
 
-export default AppBox;
+export default StudentList;
