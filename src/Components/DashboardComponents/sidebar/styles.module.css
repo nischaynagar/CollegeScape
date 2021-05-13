@@ -25,25 +25,18 @@
 }
 
 .mainphoto {
-  margin-left: -3vw;
-  position: relative;
-  top: 1.5vh;
-  width: 13vw;
-  height: 10vh;
 }
+
 .profileName {
   font-size: 1.2vw;
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.48);
-  margin-top: -1vh;
-  margin-left: 2vw;
 }
 
 .profile {
-  width: 7vw;
-  height: 13vh;
+  width: 100px;
   border-radius: 100%;
   border-style: solid;
   border-width: 7px;
@@ -65,10 +58,16 @@
 .option {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
 }
-.optionnames {
+.optionnamesInactive {
   margin-left: 2vw;
   color: #c3cee4;
+  font-weight: bold;
+}
+.optionnamesActive {
+  margin-left: 2vw;
+  color: #5f79fc;
   font-weight: bold;
 }
 .optionname {
@@ -82,8 +81,6 @@
   margin: 2vw;
 }
 .title {
-  margin-left: 2vw;
-  margin-top: -1vw;
   font-size: 2vw;
   font-weight: bold;
 }
@@ -103,4 +100,20 @@
   font-size: 2vw;
   color: #99adc1;
   margin-left: 1vw;
+}
+
+.profPicandName {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  fill: #5f79fc;
+}
+
+.icons {
+  fill: #99adc1;
 }
