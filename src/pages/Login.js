@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import design from "../Components/LoginComponents/loginComponents.module.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Axios from "axios";
 import {
   HashRouter as Router,
   Switch,
   Route,
   useHistory,
 } from "react-router-dom";
+import { url } from "../constants";
+import { useUser } from "../contexts/user";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +52,50 @@ const StyledButton = withStyles({
 export default function Login() {
   const history = useHistory();
   const classes = useStyles();
+
+  const [state, dispatch] = useUser();
+
+  const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsename] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handelLogin = (e) => {
+    e.preventDefault();
+    Axios.get(`${url}api/auth`, {
+      params: {
+        AdminUserName: username,
+        AdminPassword: password,
+      },
+    })
+      .then((res) => {
+        if (parseInt(res.data.result) === 1) {
+          console.log("success");
+          dispatch({
+            type: "SET_USER",
+            user: {
+              name: res.data.name,
+              username: res.data.username,
+            },
+          });
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              name: res.data.name,
+              username: res.data.username,
+            })
+          );
+          history.push("/dashboard");
+        }
+        if (parseInt(res.data.result) === 2) {
+          setError("Wrong Password Entered!");
+        }
+      })
+      .catch((err) => {
+        setError("No account with this username exist!");
+        console.log(err);
+      });
+  };
 
   return (
     <div className={design.LoginBox}>
