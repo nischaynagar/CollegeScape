@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { useUser } from "./contexts/user";
 
 const theme = createMuiTheme({
   typography: {
@@ -20,6 +21,18 @@ const theme = createMuiTheme({
 });
 
 function App() {
+  const [state, dispatch] = useUser();
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      dispatch({
+        type: "SET_USER",
+        user: JSON.parse(user),
+      });
+    }
+  }, [dispatch]);
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
