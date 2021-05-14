@@ -20,7 +20,7 @@ function Dashboard() {
             <Route exact path="/dashboard/statistics">
               <Dashboardstats />
             </Route>
-            <Route exact path="/dashboard/student">
+            <Route path="/dashboard/student">
               <Student />
             </Route>
             <Route exact path="/dashboard/faculty">

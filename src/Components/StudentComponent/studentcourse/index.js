@@ -7,7 +7,7 @@ import { withStyles } from "@material-ui/core/styles";
 import mainpic from "./images/mainpic.svg";
 import arrow from "./images/arrow.svg";
 
-function AppBox() {
+function Studentcourse() {
   return (
     <div>
       <div className={design.overview}>
@@ -62,4 +62,4 @@ function AppBox() {
   );
 }
 
-export default AppBox;
+export default Studentcourse;

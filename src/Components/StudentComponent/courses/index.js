@@ -6,7 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-bootstrap";
 import "./bootstrap-css/bootstrap.min.css";
 
-function AppBox() {
+function Courses() {
   return (
     <div>
       <div className={design.overview}>
@@ -94,4 +94,4 @@ function AppBox() {
   );
 }
 
-export default AppBox;
+export default Courses;
