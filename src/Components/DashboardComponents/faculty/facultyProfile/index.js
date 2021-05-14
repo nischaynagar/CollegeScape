@@ -1,12 +1,11 @@
-import React from "react";
 import React, { useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import ReactDOM from "react-dom";
+import "./index.css";
 
-function StudentProfile() {
+const FacultyProfile = () => {
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
-  const [enrlnum, setEnrolnum] = useState();
+  const [facultynum, setEnrolnum] = useState();
   const [emailaddr, setemailaddr] = useState();
   const [batch, setBatch] = useState();
   const [gender, setGender] = useState();
@@ -21,7 +20,7 @@ function StudentProfile() {
     setLastName(event.target.value);
   };
 
-  const enrollNum = (event) => {
+  const facultyNum = (event) => {
     setEnrolnum(event.target.value);
   };
 
@@ -47,7 +46,7 @@ function StudentProfile() {
 
   const [finalfirstName, setfinalFirstName] = useState();
   const [finallastName, setfinalLastName] = useState();
-  const [finalenrlnum, setfinalEnrolnum] = useState();
+  const [finalfacultynum, setfinalEnrolnum] = useState();
   const [finalemailaddr, setfinalemailaddr] = useState();
   const [finalbatch, setfinalBatch] = useState();
   const [finalgender, setfinalGender] = useState();
@@ -57,7 +56,7 @@ function StudentProfile() {
     event.preventDefault();
     setfinalFirstName(firstName);
     setfinalLastName(lastName);
-    setfinalEnrolnum(enrlnum);
+    setfinalEnrolnum(facultynum);
     setfinalemailaddr(emailaddr);
     setfinalBatch(batch);
     setfinalGender(gender);
@@ -69,7 +68,7 @@ function StudentProfile() {
       <div className="">
         <form onSubmit={saveValues}>
           <div className="card">
-            <h1>STUDENT PROFILE</h1>
+            <h1>FACULTY PROFILE</h1>
             <br />
             <div className="left">
               <div className="left">
@@ -98,13 +97,13 @@ function StudentProfile() {
                 </div>
 
                 <div className="">
-                  <label className="forlabel">Enrollment No</label>
+                  <label className="forlabel">Faculty ID</label>
                   <br />
                   <input
                     className="forInput"
                     type="text"
-                    onChange={enrollNum}
-                    value={enrlnum}
+                    onChange={facultyNum}
+                    value={facultynum}
                   ></input>
                   <br />
                 </div>
@@ -192,6 +191,5 @@ function StudentProfile() {
       </div>
     </>
   );
-}
-
-export default StudentProfile;
+};
+export default FacultyProfile;

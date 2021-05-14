@@ -5,6 +5,7 @@ import Dashboardoverview from "../Components/DashboardComponents/overview";
 import Dashboardstats from "../Components/DashboardComponents/statistics";
 import design from "../Components/DashboardComponents/statistics/styles.module.css";
 import Student from "./Student";
+import Faculty from "./Faculty.js";
 
 function Dashboard() {
   return (
@@ -21,6 +22,9 @@ function Dashboard() {
             </Route>
             <Route exact path="/dashboard/student">
               <Student />
+            </Route>
+            <Route exact path="/dashboard/faculty">
+              <Faculty />
             </Route>
           </Switch>
         </Router>

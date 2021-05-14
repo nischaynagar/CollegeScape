@@ -1,0 +1,80 @@
+.overview {
+  width: 60vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  margin-top: 6vh;
+  background-color: #f4f9fd;
+}
+.optionname {
+  margin-left: 2vw;
+  color: #c3cee4;
+}
+
+.searchmenu {
+  display: flex;
+  flex-direction: row;
+  margin: 2vw;
+}
+.title {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 5vw;
+  margin-bottom: 2rem;
+}
+.facultybox {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  height: 10vh;
+  background-color: #2f2e41;
+  border-radius: 13px;
+  margin-bottom: 2vw;
+}
+.facultybranch {
+  margin-left: 5vw;
+}
+.branchname {
+  font-family: "Poppins, sans-serif";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-transform: capitalize;
+  color: #99adc1;
+}
+.photo {
+  width: 4vw;
+  height: 10vh;
+  margin-left: 1vw;
+}
+.id {
+  margin-top: 2vw;
+  margin-left: 2vw;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+.name {
+  margin-top: 2vw;
+  margin-left: 28vw;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
