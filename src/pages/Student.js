@@ -14,10 +14,10 @@ function Student() {
           <Route path="/dashboard/student" exact>
             <StudentList />
           </Route>
-          <Route path="/student/courses" exact>
+          <Route path="/dashboard/student/courses" exact>
             <Studentcourses />
           </Route>
-          <Route path="/student/studentcourse" exact>
+          <Route path="/dashboard/student/studentcourse" exact>
             <Studentcourse />
           </Route>
         </Switch>

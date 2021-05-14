@@ -56,12 +56,14 @@ export default function Login() {
   const [state, dispatch] = useUser();
 
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [username, setUsename] = useState("");
   const [password, setPassword] = useState("");
 
   const handelLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     Axios.get(`${url}api/auth`, {
       params: {
         AdminUserName: username,
@@ -69,6 +71,7 @@ export default function Login() {
       },
     })
       .then((res) => {
+        setLoading(false);
         if (parseInt(res.data.result) === 1) {
           console.log("success");
           dispatch({
@@ -89,10 +92,12 @@ export default function Login() {
         }
         if (parseInt(res.data.result) === 2) {
           setError("Wrong Password Entered!");
+          setLoading(false);
         }
       })
       .catch((err) => {
         setError("No account with this username exist!");
+        setLoading(false);
         console.log(err);
       });
   };
@@ -112,6 +117,7 @@ export default function Login() {
         <StyledButton
           className={design.submitbutton}
           onClick={() => history.push("/dashboard")}
+          disabled={loading}
         >
           Login
         </StyledButton>
