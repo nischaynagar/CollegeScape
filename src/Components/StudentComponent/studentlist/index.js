@@ -5,6 +5,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import mainpic from "./images/mainpic.svg";
+import axios from "axios";
+import { url } from "../../../constants";
 
 const StyledButton = withStyles({
   root: {
@@ -21,7 +23,23 @@ const StyledButton = withStyles({
   },
 })(Button);
 
+var students = [];
 function StudentList() {
+
+  const [loaded, setloaded] = useState(false);
+
+  useEffect(() => {
+    axios.get(`${url}api/studs`)
+      .then( res => {
+        console.log("RR:", res);
+        students = Array.from(res.data);
+        setloaded(true);
+      })
+      .catch( err => {
+        console.log("Err: ", err)
+      })
+  }, [])
+
   return (
     <div>
       <div className={design.overview}>
@@ -35,12 +53,18 @@ function StudentList() {
         </div>
         <div className={design.studentbranch}>
           <p className={design.branchname}>BTech IT</p>
-          <div className={design.studentbox}>
-            <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019232</p>
-            <p className={design.name}>Bineet Wagh</p>
-          </div>
-          <div className={design.studentbox}>
+
+          {
+            loaded && (students.length > 0) && (
+              students.map(e => {
+                return (
+                  <EachField name={e.firstName + " " + e.lastName} roll = {e.id} />
+                )
+              })
+            )
+          }
+          
+          {/* <div className={design.studentbox}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019198</p>
             <p className={design.name}>Nischay Nagar</p>
@@ -49,11 +73,22 @@ function StudentList() {
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019194</p>
             <p className={design.name}>Rahul Rai</p>
-          </div>
+          </div> */}
+
         </div>
       </div>
     </div>
   );
+}
+
+const EachField = (props) => {
+  return(
+    <div className={design.studentbox}>
+      <img src={mainpic} alt="hello" className={design.photo}></img>
+      <p className={design.id}>{props.roll}</p>
+      <p className={design.name}>{props.name}</p>
+    </div>
+  )
 }
 
 export default StudentList;

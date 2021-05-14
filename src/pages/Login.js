@@ -64,14 +64,13 @@ export default function Login() {
   const handelLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    Axios.get(`${url}api/auth`, {
-      params: {
-        AdminUserName: username,
-        AdminPassword: password,
-      },
+    Axios.post(`${url}api/auth`, {
+        "AdminUserName": username,
+        "AdminPassword": password,
     })
       .then((res) => {
         setLoading(false);
+        console.log("good:", res);
         if (parseInt(res.data.result) === 1) {
           console.log("success");
           dispatch({
@@ -98,7 +97,7 @@ export default function Login() {
       .catch((err) => {
         setError("No account with this username exist!");
         setLoading(false);
-        console.log(err);
+        console.log("No account with this username exist!", err);
       });
   };
 
