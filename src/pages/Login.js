@@ -58,7 +58,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
-  const [username, setUsename] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handelLogin = (e) => {
@@ -107,16 +107,24 @@ export default function Login() {
       <div className={design.column1}>
         <p className={design.heading}>Login</p>
         <form className={classes.root} noValidate autoComplete="off">
-          <TextField id="standard-basic" label="Email" />
+          <TextField
+            id="standard-basic"
+            label="Email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <TextField
             id="standard-password-input"
             label="Password"
             type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </form>
         <StyledButton
           className={design.submitbutton}
-          onClick={() => history.push("/dashboard")}
+          // onClick={() => history.push("/dashboard")}
+          onClick={handelLogin}
           disabled={loading}
         >
           Login
