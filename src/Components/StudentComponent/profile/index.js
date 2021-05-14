@@ -1,7 +1,6 @@
-import React from "react";
 import React, { useState } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function StudentProfile() {
   const [firstName, setFirstName] = useState();
