@@ -64,9 +64,11 @@ export default function Login() {
   const handelLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    Axios.post(`${url}api/auth`, {
-        "AdminUserName": username,
-        "AdminPassword": password,
+    Axios.get(`${url}api/auth`, {
+      params: {
+        AdminUserName: username,
+        AdminPassword: password,
+      },
     })
       .then((res) => {
         setLoading(false);
