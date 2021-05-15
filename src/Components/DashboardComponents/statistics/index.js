@@ -16,42 +16,42 @@ function Statistics() {
       <div className={design.overview}>
         <div className={design.searchmenu}>
           <img src={searchbar} alt="hello"></img>
-          <p className={design.optionname}>Search</p>
+          <div className={design.optionname}>Search</div>
         </div>
         <div>
-          <p className={design.title}>Statistics</p>
+          <div className={design.title}>Statistics</div>
         </div>
 
         <div className={design.rowbox}>
           <div className={design.statbox}>
-            <p className={design.statname}>Number of Students</p>
+            <div className={design.statname}>Number of Students</div>
             <div className={design.outercircle}>
               <div className={design.innercircle}>
-                <p className={design.data}>25</p>
+                <div className={design.data}>25</div>
               </div>
             </div>
           </div>
           <div className={design.statbox}>
-            <p className={design.statname}>Number of Faculties</p>
+            <div className={design.statname}>Number of Faculties</div>
             <div className={design.outercircle}>
               <div className={design.innercircle}>
-                <p className={design.data}>1</p>
+                <div className={design.data}>1</div>
               </div>
             </div>
           </div>
           <div className={design.statbox}>
-            <p className={design.statname}>Number of Courses</p>
+            <div className={design.statname}>Number of Courses</div>
             <div className={design.outercircle}>
               <div className={design.innercircle}>
-                <p className={design.data}>15</p>
+                <div className={design.data}>15</div>
               </div>
             </div>
           </div>
           <div className={design.statbox}>
-            <p className={design.statname}>Number of Working Days</p>
+            <div className={design.statname}>Number of Working Days</div>
             <div className={design.outercircle}>
               <div className={design.innercircle}>
-                <p className={design.data}>365</p>
+                <div className={design.data}>365</div>
               </div>
             </div>
           </div>
