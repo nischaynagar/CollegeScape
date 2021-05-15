@@ -1,4 +1,5 @@
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import design from "./styles.module.css";
 import searchbar from "./images/searchbar.svg";
 import React, { useState, useEffect, useRef } from "react";
@@ -16,7 +17,6 @@ const StyledButton = withStyles({
     color: "white",
     height: 48,
     padding: "0 30px",
-    outline: "none !important",
   },
   label: {
     textTransform: "capitalize",
@@ -49,7 +49,10 @@ function StudentList() {
         </div>
         <div className={design.heading}>
           <p className={design.title}>Students</p>
+          <Link to="/dashboard/student/newstudent" style={{ textDecoration: "none" }}>
           <StyledButton>Add New Student</StyledButton>
+          </Link>
+          
         </div>
         <div className={design.studentbranch}>
           <p className={design.branchname}>BTech IT</p>

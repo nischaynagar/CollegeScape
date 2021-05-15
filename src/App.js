@@ -46,7 +46,7 @@ function App() {
             {state.user ? <Dashboard /> : <Redirect to="/login" />}
           </Route>
           <Route path="/login" exact>
-            {state.user ? <Dashboard /> : <Login />}
+            {state.user ? <Redirect to="/dashboard"/>: <Login />}
           </Route>
           <Route path="/" exact>
             <Home />

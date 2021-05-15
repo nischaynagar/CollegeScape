@@ -13,6 +13,7 @@ import Student from "./Student";
 import Faculty from "./Faculty.js";
 import { Button } from "@material-ui/core";
 import { useUser } from "../contexts/user";
+import CurrentAdminProfile from "../Components/AdminComponents/profile/index.js";
 
 function Dashboard() {
   const history = useHistory();
@@ -41,6 +42,9 @@ function Dashboard() {
             </Route>
             <Route exact path="/dashboard/faculty">
               <Faculty />
+            </Route>
+            <Route exact path="/dashboard/profile">
+              <CurrentAdminProfile/>
             </Route>
           </Switch>
         </Router>
