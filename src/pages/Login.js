@@ -150,7 +150,6 @@ export default function Login() {
         </form>
         <StyledButton
           className={design.submitbutton}
-          // onClick={() => history.push("/dashboard")}
           onClick={handelLogin}
           disabled={loading}
         >

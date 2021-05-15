@@ -3,7 +3,12 @@ import "./App.css";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { useUser } from "./contexts/user";
@@ -37,8 +42,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path="/dashboard" component={Dashboard}></Route>
-          <Route path="/login" exact component={Login}></Route>
+          <Route path="/dashboard">
+            {state.user ? <Dashboard /> : <Redirect to="/login" />}
+          </Route>
+          <Route path="/login" exact>
+            {state.user ? <Dashboard /> : <Login />}
+          </Route>
           <Route path="/" exact component={Home}></Route>
         </Switch>
       </Router>
