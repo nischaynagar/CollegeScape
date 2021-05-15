@@ -10,8 +10,14 @@ import {
   Route,
   useHistory,
 } from "react-router-dom";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 import { url } from "../constants";
 import { useUser } from "../contexts/user";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,6 +62,7 @@ export default function Login() {
   const [state, dispatch] = useUser();
 
   const [error, setError] = useState("");
+  const [openSnack, setOpenSnack] = useState(false);
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -93,18 +100,37 @@ export default function Login() {
         }
         if (parseInt(res.data.result) === 2) {
           setError("Wrong Password Entered!");
+          setOpenSnack(true);
           setLoading(false);
         }
       })
       .catch((err) => {
         setError("No account with this username exist!");
+        setOpenSnack(true);
         setLoading(false);
-        console.log("No account with this username exist!", err);
+        console.log(err);
       });
+  };
+
+  const handleCloseSnack = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnack(false);
   };
 
   return (
     <div className={design.LoginBox}>
+      <Snackbar
+        open={openSnack}
+        autoHideDuration={4000}
+        onClose={handleCloseSnack}
+      >
+        <Alert className="snackbarDiv" severity="error">
+          <strong>{error}</strong>
+        </Alert>
+      </Snackbar>
       <div className={design.column1}>
         <p className={design.heading}>Login</p>
         <form className={classes.root} noValidate autoComplete="off">
@@ -124,7 +150,6 @@ export default function Login() {
         </form>
         <StyledButton
           className={design.submitbutton}
-          // onClick={() => history.push("/dashboard")}
           onClick={handelLogin}
           disabled={loading}
         >
