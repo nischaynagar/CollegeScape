@@ -39,8 +39,6 @@ function Statistics() {
               </div>
             </div>
           </div>
-        </div>
-        <div className={design.rowbox}>
           <div className={design.statbox}>
             <p className={design.statname}>Number of Courses</p>
             <div className={design.outercircle}>

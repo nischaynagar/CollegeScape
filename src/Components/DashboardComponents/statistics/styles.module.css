@@ -100,19 +100,21 @@
   font-weight: bold;
 }
 .statbox {
-  width: 15vw;
-  height: 30vh;
-  margin: 5vh;
+  display: flex;
+  height: 230px;
   border-radius: 23px;
-  margin-left: 4vw;
   background-color: white;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  padding-left: 4vw;
+  align-items: center;
 }
 .rowbox {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
+  grid-template-columns: 23vw 23vw;
+  margin: 0 5vw;
 }
 .outercircle {
   background-image: linear-gradient(151.11deg, #ff6b81 12.02%, #4776ff 96.09%);
