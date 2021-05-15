@@ -1,15 +1,31 @@
 import React from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import Sidebar from "../Components/DashboardComponents/sidebar/index.js";
 import Dashboardoverview from "../Components/DashboardComponents/overview";
 import Dashboardstats from "../Components/DashboardComponents/statistics";
-import design from "../Components/DashboardComponents/statistics/styles.module.css";
+import design from "../Components/DashboardComponents/rightSideBar/rightSideBar.module.css";
 import Student from "./Student";
 import Faculty from "./Faculty.js";
+import { Button } from "@material-ui/core";
+import { useUser } from "../contexts/user";
 
 function Dashboard() {
+  const history = useHistory();
+  const [state, dispatch] = useUser();
+  const handleLogOut = () => {
+    dispatch({
+      type: "UNSET_USER",
+    });
+    localStorage.clear();
+  };
+
   return (
-    <div>
+    <div className={design.main}>
       <div className={design.ContainerBox}>
         <Sidebar />
         <Router>
@@ -28,6 +44,11 @@ function Dashboard() {
             </Route>
           </Switch>
         </Router>
+      </div>
+      <div className={design.RightSideBarMain}>
+        <Button variant="contained" color="primary" onClick={handleLogOut}>
+          logout
+        </Button>
       </div>
     </div>
   );
