@@ -38,6 +38,10 @@
   border-radius: 13px;
   margin-bottom: 2vw;
 }
+.studentbox:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #834BFF;
+}
 .studentbranch {
   margin-left: 5vw;
   overflow-y: scroll;
@@ -57,6 +61,7 @@
   height: 10vh;
   margin-left: 1vw;
 }
+
 .id {
   margin-top: 2vw;
   margin-left: 2vw;

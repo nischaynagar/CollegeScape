@@ -6,6 +6,7 @@ import Courses from "../Components/StudentComponent/courses";
 import StudentList from "../Components/StudentComponent/studentlist";
 import StudentProfile from "../Components/StudentComponent/profile";
 import design from "../Components/DashboardComponents/statistics/styles.module.css";
+import NewStudent from "../Components/StudentComponent/newstudent/index.js";
 
 function Student() {
   return (
@@ -20,6 +21,9 @@ function Student() {
           </Route>
           <Route path="/dashboard/student/profile" exact>
             <StudentProfile />
+          </Route>
+          <Route path="/dashboard/student/newstudent" exact>
+            <NewStudent />
           </Route>
         </Switch>
       </Router>

@@ -4,7 +4,7 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
 import mainpic from "./images/mainpic.svg";
-import design from './profile.module.css'
+import design from './new.module.css'
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import TextField from '@material-ui/core/TextField';
@@ -31,28 +31,6 @@ const genders = [
   }
 ];
 
-const CoursesButton = styled(mButton)({
-  fontSize: "1.3vw",
-  width: "23vw",
-  margin: "auto",
-  color: "white",
-  fontWeight: "normal",
-  textTransform: "none",
-  fontFamily: "Montserrat",
-  // transition: "all 0.9s ease-in-out",
-  background:
-    "#0E2A47",
-  // border: 0,
-  // borderRadius: 3,
-  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
-  borderRadius: "10px",
-  height: 48,
-  padding: "0 30px",
-  "&:hover": {
-    background:
-      "#216FC0",
-  },
-});
 
 const ChangesButton = styled(mButton)({
   fontSize: "1.3vw",
@@ -85,22 +63,22 @@ const useStyles = {
 };
 
 
-const firstName = "Rahul";
-const email = "rahulrai@orissa.com";
-const dob = "01-01-2018";
-const enrollmentNumber = "IIT2019194";
-const batch = "IT2019";
-const lastName = "Rai";
-const mobile = "+91692437294";
+const firstName = "";
+const email = "";
+const dob = "";
+const enrollmentNumber = "";
+const batch = "";
+const lastName = "";
+const mobile = "";
 
 
 
-function StudentProfile() {
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+function NewStudent() {
+  const [selectedDate, setSelectedDate] = React.useState(null);
 
   
 
-  const [gender, setGender] = React.useState('female');
+  const [gender, setGender] = React.useState(null);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -115,7 +93,7 @@ function StudentProfile() {
       <div className={design.overview}>
         <div className={design.headingWrapper}>
           <div className={design.heading}>
-            <p className={design.title}>Student's Profile</p>
+            <p className={design.title}>Create new student</p>
             <div className={design.moveBackWrapper}>
               <img className={design.moveBackImg} src={arrow} alt="move back"/>
               <h4 className={design.moveBackText} >Move Back</h4>
@@ -158,7 +136,6 @@ function StudentProfile() {
                   }}
                 />
               </MuiPickersUtilsProvider>
-              <CoursesButton>Enrolled Courses</CoursesButton>
             </div>
             <div className={design.col2}>
             <TextField
@@ -208,14 +185,13 @@ function StudentProfile() {
                   {option.label}
                 </MenuItem>
               ))}</TextField>
-
-              
-              <ChangesButton>Apply Changes</ChangesButton>
             </div>
+            
         </div>
+        <ChangesButton className={design.next}>Next</ChangesButton>
       </div>
     </>
   );
 }
 
-export default StudentProfile;
+export default NewStudent;

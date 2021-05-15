@@ -1,0 +1,92 @@
+.overview {
+    width: 60vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 19px;
+    margin-top: 6vh;
+    background-color: #f4f9fd;
+  }
+  
+  .headingWrapper {
+    margin-top: 2rem;
+    width: 60vw;
+  }
+
+  
+
+  .title {
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  .heading {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 5vw;
+  }
+
+  .moveBackWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+
+  .moveBackImg {
+    padding-top: 10px;
+    margin: auto;
+  }
+
+  .moveBackText {
+      color: #834BFF;
+      font-weight: 800;
+      display: flex;
+      margin-left: 0.7vw !important;
+      height: 1vh;
+      font-size: 1.2rem;
+  }
+  .profileDetailsWrapper {
+    margin: 0.3rem auto;
+    width: 60vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .col1 {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .col2 {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profileImg {
+    align-self: flex-start;
+    height: 16vh;
+    margin: 1.89rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .textField {
+    margin: 4rem;
+  }
+
+  .changesButton {
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .detailsWrapperMain {
+    display: flex;
+    flex-direction: column;
+  }
