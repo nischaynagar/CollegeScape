@@ -48,7 +48,9 @@ function App() {
           <Route path="/login" exact>
             {state.user ? <Dashboard /> : <Login />}
           </Route>
-          <Route path="/" exact component={Home}></Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
         </Switch>
       </Router>
     </ThemeProvider>
