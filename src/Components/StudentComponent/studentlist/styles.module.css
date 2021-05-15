@@ -40,6 +40,8 @@
 }
 .studentbranch {
   margin-left: 5vw;
+  overflow-y: scroll;
+  height: 100%;
 }
 .branchname {
   font-family: "Poppins, sans-serif";
