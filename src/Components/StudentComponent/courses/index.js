@@ -12,82 +12,116 @@ function Courses() {
       <div className={design.overview}>
         <div className={design.searchmenu}>
           <img src={searchbar} alt="hello"></img>
-          <p className={design.optionname}>Search</p>
+          <div className={design.optionname}>Search</div>
         </div>
         <div className={design.heading}>
-          <p className={design.title}> Bhole's Courses</p>
+          <div className={design.title}> Bhole's Courses</div>
           <div className={design.sideback}>
             <img src={arrow} alt="hello"></img>
-            <p className={design.back}>Move back</p>
+            <div className={design.back}>Move back</div>
           </div>
         </div>
         <div className={design.core}>
-          <Carousel className={design.slidecomponent}>
-            <Carousel.Item className={design.slider}>
+          <div className={design.slidecomponent}>
+            <div className={design.slider}>
               <div className={design.courseboxupper}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle1}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercircleupper}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-            <Carousel.Item className={design.slider}>
+            </div>
+            <div className={design.slider}>
               <div className={design.courseboxupper}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle1}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercircleupper}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-            <Carousel.Item className={design.slider}>
+            </div>
+            <div className={design.slider}>
               <div className={design.courseboxupper}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle1}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercircleupper}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-          </Carousel>
+            </div>
+            <div className={design.slider}>
+              <div className={design.courseboxupper}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercircleupper}>
+                  <div className={design.innercircle}>
+                    <div className={design.data}>15</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+            
+          </div>
         </div>
         <div className={design.core}>
-          <Carousel className={design.slidecomponent}>
-            <Carousel.Item className={design.slider}>
+          <div className={design.slidecomponent}>
+            <div className={design.slider}>
               <div className={design.courseboxlower}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle2}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercirclelower}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-            <Carousel.Item className={design.slider}>
+            </div>
+
+            <div className={design.slider}>
               <div className={design.courseboxlower}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle2}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercirclelower}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-            <Carousel.Item className={design.slider}>
+            </div>
+            <div className={design.slider}>
               <div className={design.courseboxlower}>
-                <p className={design.title}>DBMS</p>
-                <div className={design.outercircle2}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercirclelower}>
                   <div className={design.innercircle}>
-                    <p className={design.data}>15</p>
+                    <div className={design.data}>15</div>
                   </div>
                 </div>
               </div>
-            </Carousel.Item>
-          </Carousel>
+            </div>
+            <div className={design.slider}>
+              <div className={design.courseboxlower}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercirclelower}>
+                  <div className={design.innercircle}>
+                    <div className={design.data}>15</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={design.slider}>
+              <div className={design.courseboxlower}>
+                <div className={design.ctitle}>DBMS</div>
+                <div className={design.outercirclelower}>
+                  <div className={design.innercircle}>
+                    <div className={design.data}>15</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
