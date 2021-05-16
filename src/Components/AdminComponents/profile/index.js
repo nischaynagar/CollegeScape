@@ -16,6 +16,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@material-ui/core/styles";
 import mButton from "@material-ui/core/Button";
+import { useUser } from "../../../contexts/user";
 
 const ChangesButton = styled(mButton)({
   fontSize: "1.3vw",
@@ -52,6 +53,7 @@ const mobile = "+91692437294";
 
 function CurrentAdminProfile() {
   const history = useHistory();
+  const [state, dispatch] = useUser();
 
   const handleGoBack = () => {
     history.push("./");
@@ -78,7 +80,7 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="First Name"
-                defaultValue={firstName}
+                defaultValue={state.user.firstName}
                 variant="outlined"
               />
               <TextField
@@ -86,7 +88,7 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue={email}
+                defaultValue={state.user.email}
                 variant="outlined"
               />
             </div>
@@ -96,7 +98,7 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue={lastName}
+                defaultValue={state.user.lastName}
                 variant="outlined"
               />
               <TextField
@@ -104,7 +106,7 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={mobile}
+                defaultValue={state.user.mobile}
                 variant="outlined"
               />
             </div>
