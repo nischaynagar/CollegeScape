@@ -81,7 +81,7 @@ export default function Login() {
         setLoading(false);
         console.log("good:", res);
         if (parseInt(res.data.result) === 1) {
-          console.log("success");
+          console.log("success",res.data.name," ",res.data.username);
           dispatch({
             type: "SET_USER",
             user: {
