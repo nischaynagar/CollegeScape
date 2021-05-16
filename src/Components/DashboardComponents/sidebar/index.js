@@ -10,9 +10,11 @@ import profile from "./images/profile.svg";
 import admin from "./images/admin.svg";
 import searchbar from "./images/searchbar.svg";
 import mainpic from "./images/mainpic.svg";
+import { useUser } from "../../../contexts/user";
 
 function Sidebar() {
   const location = useLocation();
+  const [state, dispatch] = useUser();
 
   return (
     <div className={design.leftbar}>
@@ -20,7 +22,7 @@ function Sidebar() {
         <div className={design.profile}>
           <img src={mainpic} alt="hello" className={design.mainphoto}></img>
         </div>
-        <p className={design.profileName}>Admin Bhole</p>
+        <p className={design.profileName}>Admin {state.user.firstName}</p>
       </div>
       <div className={design.choices}>
         <Link to="/dashboard" style={{ textDecoration: "none" }}>

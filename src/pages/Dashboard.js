@@ -44,7 +44,7 @@ function Dashboard() {
               <Faculty />
             </Route>
             <Route exact path="/dashboard/profile">
-              <CurrentAdminProfile/>
+              <CurrentAdminProfile />
             </Route>
           </Switch>
         </Router>
