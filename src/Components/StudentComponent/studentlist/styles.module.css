@@ -40,7 +40,7 @@
 }
 .studentbox:hover {
   transition: 0.3s ease-in-out;
-  background-color: #834BFF;
+  background-color: #834bff;
 }
 .studentbranch {
   margin-left: 5vw;
@@ -48,6 +48,7 @@
   height: 100%;
 }
 .branchname {
+  display: none;
   font-family: "Poppins, sans-serif";
   font-style: normal;
   font-weight: 600;
