@@ -11,6 +11,8 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import mainpic from "../../../../images/mainpic.svg";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
+import { url } from "../../../../constants";
 
 const StyledButton = withStyles({
   root: {
@@ -27,12 +29,28 @@ const StyledButton = withStyles({
   },
 })(Button);
 
+var faculties = [];
+
 function FacultyList() {
   const history = useHistory();
+  const [loaded, setloaded] = useState(false);
 
   const handleOpenprofile = () => {
     history.push("./faculty/profile");
   };
+
+  useEffect(() => {
+    axios
+      .get(`${url}api/facultys`)
+      .then((res) => {
+        console.log("RR:", res);
+        faculties = Array.from(res.data);
+        setloaded(true);
+      })
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+  }, []);
 
   return (
     <div>
@@ -43,8 +61,11 @@ function FacultyList() {
         </div>
         <div className={design.heading}>
           <p className={design.title}>Faculties</p>
-          <Link to="/dashboard/faculty/newfaculty" style={{ textDecoration: "none" }}>
-          <StyledButton>Add New Faculty</StyledButton>
+          <Link
+            to="/dashboard/faculty/newfaculty"
+            style={{ textDecoration: "none" }}
+          >
+            <StyledButton>Add New Faculty</StyledButton>
           </Link>
         </div>
         <div className={design.facultybranch}>

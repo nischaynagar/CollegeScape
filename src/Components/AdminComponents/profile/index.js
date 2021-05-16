@@ -51,7 +51,7 @@ function CurrentAdminProfile() {
   const [state, dispatch] = useUser();
 
   const handleGoBack = () => {
-    history.push("./");
+    history.goBack();
   };
 
   return (
