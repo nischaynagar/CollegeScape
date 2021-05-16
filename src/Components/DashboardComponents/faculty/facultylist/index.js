@@ -4,13 +4,14 @@ import {
   Switch,
   Route,
   useHistory,
+  Link,
+  useLocation
 } from "react-router-dom";
 import design from "./facultylist.module.css";
 import searchbar from "../../../../images/searchbar.svg";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import mainpic from "../../../../images/mainpic.svg";
-import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../../../constants";
 
@@ -32,16 +33,16 @@ const StyledButton = withStyles({
 var faculties = [];
 
 function FacultyList() {
-  const history = useHistory();
+  // const history = useHistory();
   const [loaded, setloaded] = useState(false);
 
-  const handleOpenprofile = () => {
-    history.push("./faculty/profile");
-  };
+  // const handleOpenprofile = () => {
+  //   history.push("./faculty/profile");
+  // };
 
   useEffect(() => {
     axios
-      .get(`${url}api/facultys`)
+      .get(`${url}api/facts`)
       .then((res) => {
         console.log("RR:", res);
         faculties = Array.from(res.data);
@@ -69,7 +70,15 @@ function FacultyList() {
           </Link>
         </div>
         <div className={design.facultybranch}>
-          <div className={design.facultybox} onClick={handleOpenprofile}>
+          {loaded &&
+            faculties.length > 0 &&
+            faculties.map((e) => {
+              return (
+                <EachField name={e.firstName + " " + e.lastName} roll={e.id} />
+              );
+            })}
+
+          {/* <div className={design.facultybox} onClick={handleOpenprofile}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019232</p>
             <p className={design.name}>Bineet Wagh</p>
@@ -83,11 +92,23 @@ function FacultyList() {
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019194</p>
             <p className={design.name}>Rahul Rai</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   );
 }
+
+const EachField = (props) => {
+  return (
+    <div className={design.facultybox}>
+      <div className={design.RollAndPic}>
+        <img src={mainpic} alt="hello" className={design.photo}></img>
+        <div className={design.id}>{props.roll}</div>
+      </div>
+      <div className={design.name}>{props.name}</div>
+    </div>
+  );
+};
 
 export default FacultyList;

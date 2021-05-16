@@ -132,7 +132,7 @@ function NewFaculty() {
     event.preventDefault();
   //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
    console.log(" Data -c sent  :",firstName," ",lastName," ",facultyID," ",emailaddr," ",gender," ",phn," ",batch," ",dob);
-   axios.post(`${url}api/inserts`,{
+   axios.post(`${url}api/insertf`,{
     "firstName":firstName,
     "lastName":lastName,
     "id":facultyID,
