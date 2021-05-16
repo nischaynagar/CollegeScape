@@ -10,6 +10,7 @@ import searchbar from "../../../../images/searchbar.svg";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import mainpic from "../../../../images/mainpic.svg";
+import { Link, useLocation } from "react-router-dom";
 
 const StyledButton = withStyles({
   root: {
@@ -42,7 +43,9 @@ function FacultyList() {
         </div>
         <div className={design.heading}>
           <p className={design.title}>Faculties</p>
+          <Link to="/dashboard/faculty/newfaculty" style={{ textDecoration: "none" }}>
           <StyledButton>Add New Faculty</StyledButton>
+          </Link>
         </div>
         <div className={design.facultybranch}>
           <div className={design.facultybox} onClick={handleOpenprofile}>

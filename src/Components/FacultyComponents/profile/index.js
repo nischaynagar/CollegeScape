@@ -18,6 +18,9 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import axios from "axios";
+import { url } from "../../../constants";
+import {useHistory} from "react-router-dom";
 
 
 const genders = [
@@ -85,17 +88,53 @@ const useStyles = {
 };
 
 
-const firstName = "Rahul";
-const email = "rahulrai@orissa.com";
-const dob = "01-01-2018";
-const enrollmentNumber = "IIT2019194";
-const batch = "IT2019";
-const lastName = "Rai";
-const mobile = "+91692437294";
+// const firstName = "Rahul";
+// const email = "rahulrai@orissa.com";
+// const dob = "01-01-2018";
+// const enrollmentNumber = "IIT2019194";
+// const batch = "IT2019";
+// const lastName = "Rai";
+// const mobile = "+91692437294";
 
 
 
-function StudentProfile() {
+function FacultyProfile() {
+
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [facultyID, setFacultyID] = useState();
+  const [emailaddr, setemailaddr] = useState();
+  const [batch, setBatch] = useState();
+  // const [gender, setGender] = useState();
+  const [dob, setdob] = useState();
+  const [phn, setphn] = useState();
+
+  const forFirstName = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const forLastName = (event) => {
+    setLastName(event.target.value);
+  };
+
+  const forFacultyID = (event) => {
+    setFacultyID(event.target.value);
+  };
+
+  const forEmail = (event) => {
+    setemailaddr(event.target.value);
+  };
+
+  const forBatch = (event) => {
+    setBatch(event.target.value);
+  };
+
+  const forphn = (event) => {
+    setphn(event.target.value);
+  };
+  
+  const history = useHistory();
+
   const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
 
   
@@ -104,18 +143,43 @@ function StudentProfile() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    setdob(selectedDate);
+    console.log("date:",date)
   };
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+ 
+  const sendData=(event)=>{
+    event.preventDefault();
+  //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
+   console.log(" Data -c sent  :",firstName," ",lastName," ",facultyID," ",emailaddr," ",gender," ",phn," ",batch," ",dob);
+   axios.post(`${url}api/inserts`,{
+    "firstName":firstName,
+    "lastName":lastName,
+    "id":facultyID,
+    "emailAddress":emailaddr,
+    "sex":gender,
+    "phoneno":phn,
+    "currentbatch":batch,
+    "doB":dob
+   })  
+   .then((res)=>{
+     console.log("Entry registered in faculty list: ",res);
+     history.push("/dashboard/faculty");
+   })
+   .catch((err)=>{
+     console.log("Failed to register faculty: ",err);}
+ ) 
+ };
 
   return (
     <>
       <div className={design.overview}>
         <div className={design.headingWrapper}>
           <div className={design.heading}>
-            <p className={design.title}>Student's Profile</p>
+            <p className={design.title}>Faculty's Profile</p>
             <div className={design.moveBackWrapper}>
               <img className={design.moveBackImg} src={arrow} alt="move back"/>
               <h4 className={design.moveBackText} >Move Back</h4>
@@ -130,16 +194,19 @@ function StudentProfile() {
                 required
                 id="outlined-required"
                 label="First Name"
-                defaultValue={firstName}
+                // defaultValue={firstName}
+                value={firstName}
                 variant="outlined"
+                onChange={forFirstName}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue={email}
+                value={emailaddr}
                 variant="outlined"
+                onChange={forEmail}
               />
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
@@ -158,40 +225,44 @@ function StudentProfile() {
                   }}
                 />
               </MuiPickersUtilsProvider>
-              <CoursesButton>Enrolled Courses</CoursesButton>
+              <CoursesButton>Assigned Courses</CoursesButton>
             </div>
             <div className={design.col2}>
             <TextField
               style={useStyles}
                 required
                 id="outlined-required"
-                label="Enrollment Number"
-                defaultValue={enrollmentNumber}
+                label="Faculty ID"
+                value={facultyID}
                 variant="outlined"
+                onChange={forFacultyID}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Batch"
-                defaultValue={batch}
+                value={batch}
                 variant="outlined"
+                onChange={forBatch}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue={lastName}
+                value={lastName}
                 variant="outlined"
+                onChange={forLastName}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={mobile}
+                value={phn}
                 variant="outlined"
+                onChange={forphn}
               />
               <TextField
                 style={useStyles}
@@ -210,7 +281,10 @@ function StudentProfile() {
               ))}</TextField>
 
               
-              <ChangesButton>Apply Changes</ChangesButton>
+              {/* <ChangesButton onChange={sendData}>Apply Changes</ChangesButton> */}
+              <button className="btn btn-success space" type="submit" onClick={sendData}>
+                  Save changes
+                </button>              
             </div>
         </div>
       </div>
@@ -218,4 +292,4 @@ function StudentProfile() {
   );
 }
 
-export default StudentProfile;
+export default FacultyProfile;
