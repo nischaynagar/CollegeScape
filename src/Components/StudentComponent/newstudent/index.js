@@ -18,6 +18,9 @@ import {
   KeyboardTimePicker,
   KeyboardDatePicker,
 } from '@material-ui/pickers';
+import axios from "axios";
+import { url } from "../../../constants";
+import {useHistory} from "react-router-dom";
 
 
 const genders = [
@@ -63,17 +66,53 @@ const useStyles = {
 };
 
 
-const firstName = "";
-const email = "";
-const dob = "";
-const enrollmentNumber = "";
-const batch = "";
-const lastName = "";
-const mobile = "";
+// const firstName = "";
+// const email = "";
+// const dob = "";
+// const enrollmentNumber = "";
+// const batch = "";
+// const lastName = "";
+// const mobile = "";
 
 
 
 function NewStudent() {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [enrlnum, setEnrolnum] = useState();
+  const [emailaddr, setemailaddr] = useState();
+  const [batch, setBatch] = useState();
+  // const [gender, setGender] = useState();
+  const [dob, setdob] = useState();
+  const [phn, setphn] = useState();
+
+  const forFirstName = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const forLastName = (event) => {
+    setLastName(event.target.value);
+  };
+
+  const enrollNum = (event) => {
+    setEnrolnum(event.target.value);
+  };
+
+  const forEmail = (event) => {
+    setemailaddr(event.target.value);
+  };
+
+  const forBatch = (event) => {
+    setBatch(event.target.value);
+  };
+
+  const forphn = (event) => {
+    setphn(event.target.value);
+  };
+  
+  const history = useHistory();
+
+
   const [selectedDate, setSelectedDate] = React.useState(null);
 
   
@@ -82,12 +121,35 @@ function NewStudent() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    setdob(selectedDate);
   };
 
   const handleChange = (event) => {
     setGender(event.target.value);
   };
 
+  const sendData=(event)=>{
+    event.preventDefault();
+  //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
+   console.log(" Data -c sent  :",firstName," ",lastName," ",enrlnum," ",emailaddr," ",gender," ",phn," ",batch," ",dob);
+   axios.post(`${url}api/inserts`,{
+    "firstName":firstName,
+    "lastName":lastName,
+    "id":enrlnum,
+    "emailAddress":emailaddr,
+    "sex":gender,
+    "phoneno":phn,
+    "currentbatch":batch,
+    "doB":dob
+   })  
+   .then((res)=>{
+     console.log("Entry registered in student list: ",res);
+     history.push("/dashboard/student");
+   })
+   .catch((err)=>{
+     console.log("Failed to register student: ",err);}
+ ) 
+ }; 
   return (
     <>
       <div className={design.overview}>
@@ -108,16 +170,18 @@ function NewStudent() {
                 required
                 id="outlined-required"
                 label="First Name"
-                defaultValue={firstName}
+                value={firstName}
                 variant="outlined"
+                onChange={forFirstName}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue={email}
+                value={emailaddr}
                 variant="outlined"
+                onChange={forEmail}
               />
               <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <KeyboardDatePicker
@@ -143,32 +207,36 @@ function NewStudent() {
                 required
                 id="outlined-required"
                 label="Enrollment Number"
-                defaultValue={enrollmentNumber}
+                value={enrlnum}
                 variant="outlined"
+                onChange={enrollNum}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Batch"
-                defaultValue={batch}
+                value={batch}
                 variant="outlined"
+                onChange={forBatch}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue={lastName}
+                value={lastName}
                 variant="outlined"
+                onChange={forLastName}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={mobile}
+                value={phn}
                 variant="outlined"
+                onChange={forphn}
               />
               <TextField
                 style={useStyles}
@@ -188,7 +256,10 @@ function NewStudent() {
             </div>
             
         </div>
-        <ChangesButton className={design.next}>Next</ChangesButton>
+        {/* <ChangesButton className={design.next}>Next</ChangesButton> */}
+        <button className="btn btn-success space" type="submit" onClick={sendData}>
+                  Add Student
+                </button>              
       </div>
     </>
   );
