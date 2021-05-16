@@ -37,6 +37,9 @@
   background-color: #2f2e41;
   border-radius: 13px;
   margin-bottom: 2vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw;
 }
 .studentbox:hover {
   transition: 0.3s ease-in-out;
@@ -59,13 +62,18 @@
 }
 .photo {
   width: 4vw;
-  height: 10vh;
-  margin-left: 1vw;
 }
 
 .id {
-  margin-top: 2vw;
-  margin-left: 2vw;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+.name {
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
@@ -74,14 +82,9 @@
   text-transform: capitalize;
   color: #ffffff;
 }
-.name {
-  margin-top: 2vw;
-  margin-left: 28vw;
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
-  text-transform: capitalize;
-  color: #ffffff;
+
+.RollAndPic {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
