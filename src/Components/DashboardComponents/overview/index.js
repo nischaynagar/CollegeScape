@@ -9,6 +9,7 @@ import profile from "./images/profile.svg";
 import admin from "./images/admin.svg";
 import searchbar from "./images/searchbar.svg";
 import mainpic from "./images/mainpic.svg";
+import AttendanceGraph from "./Graph";
 
 function Overview() {
   return (
@@ -16,13 +17,15 @@ function Overview() {
       <div className={design.overview}>
         <div className={design.searchmenu}>
           <img src={searchbar} alt="hello"></img>
-          <p className={design.optionname}>Search</p>
+          <div className={design.optionname}>Search</div>
         </div>
         <div>
-          <p className={design.title}>Overview</p>
+          <div className={design.title}>Overview</div>
         </div>
         <div className={design.attendence}>
-          <p className={design.attendenceTitle}>Attendence</p>
+          <div className={design.attendenceTitle}>Attendence</div>
+          {/* <AttendanceGraph /> */}
+          <AttendanceGraph />
         </div>
       </div>
     </>
