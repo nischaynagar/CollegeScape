@@ -23,7 +23,7 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-var students = [];
+let students = [];
 function StudentList() {
   const [loaded, setloaded] = useState(false);
 
