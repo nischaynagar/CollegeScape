@@ -63,10 +63,10 @@ function CurrentAdminProfile() {
         <div className={design.headingWrapper}>
           <div className={design.heading}>
             <p className={design.title}>Profile</p>
-            <div className={design.moveBackWrapper} onClick={handleGoBack}>
+            {/* <div className={design.moveBackWrapper} onClick={handleGoBack}>
               <img className={design.moveBackImg} src={arrow} alt="move back" />
               <h4 className={design.moveBackText}>Move Back</h4>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={design.detailsWrapperMain}>
