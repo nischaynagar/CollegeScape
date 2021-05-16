@@ -22,7 +22,7 @@ function Sidebar() {
         <div className={design.profile}>
           <img src={mainpic} alt="hello" className={design.mainphoto}></img>
         </div>
-        <p className={design.profileName}>Admin {state.user.name}</p>
+        <p className={design.profileName}>Admin {state.user.firstName}</p>
       </div>
       <div className={design.choices}>
         <Link to="/dashboard" style={{ textDecoration: "none" }}>
