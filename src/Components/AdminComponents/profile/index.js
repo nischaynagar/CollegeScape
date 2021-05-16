@@ -46,11 +46,6 @@ const useStyles = {
   },
 };
 
-const firstName = "Rahul";
-const email = "rahulrai@orissa.com";
-const lastName = "Rai";
-const mobile = "+91692437294";
-
 function CurrentAdminProfile() {
   const history = useHistory();
   const [state, dispatch] = useUser();
@@ -106,7 +101,7 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={state.user.mobile}
+                defaultValue={state.user.contact}
                 variant="outlined"
               />
             </div>

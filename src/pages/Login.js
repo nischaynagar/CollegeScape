@@ -81,23 +81,25 @@ export default function Login() {
         setLoading(false);
         console.log("good:", res);
         if (parseInt(res.data.result) === 1) {
-          console.log("success", res.data.firstName, " ", res.data.username);
+          console.log("success", res.data.firstname, " ", res.data.username);
           dispatch({
             type: "SET_USER",
             user: {
+              username: res.data.username,
               firstName: res.data.firstName,
               lastName: res.data.lastName,
-              mobile: res.data.mobile,
-              username: res.data.username,
+              email: res.data.email,
+              contact: res.data.contact,
             },
           });
           localStorage.setItem(
             "user",
             JSON.stringify({
+              username: res.data.username,
               firstName: res.data.firstName,
               lastName: res.data.lastName,
-              mobile: res.data.mobile,
-              username: res.data.username,
+              email: res.data.email,
+              contact: res.data.contact,
             })
           );
           history.push("/dashboard");
