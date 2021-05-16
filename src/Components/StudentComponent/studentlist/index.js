@@ -25,20 +25,20 @@ const StyledButton = withStyles({
 
 var students = [];
 function StudentList() {
-
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
-    axios.get(`${url}api/studs`)
-      .then( res => {
+    axios
+      .get(`${url}api/studs`)
+      .then((res) => {
         console.log("RR:", res);
         students = Array.from(res.data);
         setloaded(true);
       })
-      .catch( err => {
-        console.log("Err: ", err)
-      })
-  }, [])
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+  }, []);
 
   return (
     <div>
@@ -49,24 +49,24 @@ function StudentList() {
         </div>
         <div className={design.heading}>
           <p className={design.title}>Students</p>
-          <Link to="/dashboard/student/newstudent" style={{ textDecoration: "none" }}>
-          <StyledButton>Add New Student</StyledButton>
+          <Link
+            to="/dashboard/student/newstudent"
+            style={{ textDecoration: "none" }}
+          >
+            <StyledButton>Add New Student</StyledButton>
           </Link>
-          
         </div>
         <div className={design.studentbranch}>
           <p className={design.branchname}>BTech IT</p>
 
-          {
-            loaded && (students.length > 0) && (
-              students.map(e => {
-                return (
-                  <EachField name={e.firstName + " " + e.lastName} roll = {e.id} />
-                )
-              })
-            )
-          }
-          
+          {loaded &&
+            students.length > 0 &&
+            students.map((e) => {
+              return (
+                <EachField name={e.firstName + " " + e.lastName} roll={e.id} />
+              );
+            })}
+
           {/* <div className={design.studentbox}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
             <p className={design.id}>IIT2019198</p>
@@ -77,7 +77,6 @@ function StudentList() {
             <p className={design.id}>IIT2019194</p>
             <p className={design.name}>Rahul Rai</p>
           </div> */}
-
         </div>
       </div>
     </div>
@@ -85,13 +84,15 @@ function StudentList() {
 }
 
 const EachField = (props) => {
-  return(
+  return (
     <div className={design.studentbox}>
-      <img src={mainpic} alt="hello" className={design.photo}></img>
-      <p className={design.id}>{props.roll}</p>
-      <p className={design.name}>{props.name}</p>
+      <div className={design.RollAndPic}>
+        <img src={mainpic} alt="hello" className={design.photo}></img>
+        <div className={design.id}>{props.roll}</div>
+      </div>
+      <div className={design.name}>{props.name}</div>
     </div>
-  )
-}
+  );
+};
 
 export default StudentList;

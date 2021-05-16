@@ -41,10 +41,12 @@
 }
 .facultybox:hover {
   transition: 0.3s ease-in-out;
-  background-color: #834BFF;
+  background-color: #834bff;
 }
 .facultybranch {
   margin-left: 5vw;
+  height: 100%;
+  overflow-y: scroll;
 }
 .branchname {
   font-family: "Poppins, sans-serif";
