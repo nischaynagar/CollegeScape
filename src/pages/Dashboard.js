@@ -40,11 +40,11 @@ function Dashboard() {
             <Route path="/dashboard/student">
               <Student />
             </Route>
-            <Route exact path="/dashboard/faculty">
+            <Route path="/dashboard/faculty">
               <Faculty />
             </Route>
             <Route exact path="/dashboard/profile">
-              <CurrentAdminProfile/>
+              <CurrentAdminProfile />
             </Route>
           </Switch>
         </Router>
