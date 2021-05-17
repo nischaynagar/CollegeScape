@@ -17,6 +17,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@material-ui/core/styles";
 import mButton from "@material-ui/core/Button";
 import { useUser } from "../../../contexts/user";
+import axios from "axios";
+import { url } from "../../../constants";
 
 const ChangesButton = styled(mButton)({
   fontSize: "1.3vw",
@@ -56,6 +58,37 @@ function CurrentAdminProfile() {
 
   const handleGoBack = () => {
     history.goBack();
+  };
+
+  const UpdateAdminProfile = () => {
+    axios
+      .put(`${url}api/update_admin`, {
+        username: state.user.username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        contact: contact,
+      })
+      .then((res) => {
+        setUpdatedUserToLocalStorage();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const setUpdatedUserToLocalStorage = () => {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        username: state.user.username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        contact: contact,
+      })
+    );
+    console.log(localStorage.getItem("user"));
   };
 
   return (
@@ -114,7 +147,10 @@ function CurrentAdminProfile() {
               />
             </div>
           </div>
-          <ChangesButton className={design.changesButton}>
+          <ChangesButton
+            className={design.changesButton}
+            onClick={UpdateAdminProfile}
+          >
             Apply Changes
           </ChangesButton>
         </div>
