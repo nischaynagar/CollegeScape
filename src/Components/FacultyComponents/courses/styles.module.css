@@ -1,0 +1,101 @@
+.overview {
+  width: 60vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  margin-top: 6vh;
+  background-color: #f4f9fd;
+}
+.optionname {
+  margin-left: 2vw;
+  color: #c3cee4;
+}
+
+.searchmenu {
+  display: flex;
+  flex-direction: row;
+  margin: 2vw;
+}
+.title {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.sideback {
+  display: flex;
+  flex-direction: row;
+}
+.sideback {
+  color: #834bff;
+  font-size: 0.8vw;
+  font-weight: bold;
+}
+.ctitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.core {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 54vw;
+  height: 35vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.slidecomponent {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+
+
+
+
+.title {
+  font-size: 2vw;
+}
+.slider {
+  margin: 0.7vw 1.47vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.courseboxupper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  margin: 0 0.08vw;
+  width: 15vw;
+  height: 25vh;
+  background: #F5C0C0;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+}
+.courseboxlower {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  margin: 0 0.08vw;
+  width: 15vw;
+  height: 25vh;
+  background: #B8B5FF;
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+}
