@@ -5,6 +5,8 @@ import FacultyList from "../Components/DashboardComponents/faculty/facultylist";
 import FacultyProfile from "../Components/FacultyComponents/profile/index";
 import design from "../Components/DashboardComponents/statistics/styles.module.css";
 import NewFaculty from "../Components/FacultyComponents/newfaculty/index.js";
+import FacultyCourses from "../Components/FacultyComponents/courses/index.js";
+import FacultyCourse from "../Components/FacultyComponents/facultycourse/index.js";
 
 export default function Faculty() {
   return (
@@ -18,7 +20,10 @@ export default function Faculty() {
             <FacultyProfile />
           </Route>
           <Route path="/dashboard/faculty/courses" exact>
-
+            <FacultyCourses/>
+          </Route>
+          <Route path="/dashboard/faculty/coursedetails" exact>
+            <FacultyCourse/>
           </Route>
           <Route path="/dashboard/faculty/newfaculty" exact>
             <NewFaculty/>
