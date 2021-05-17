@@ -4,7 +4,7 @@ function Popup(props) {
     return (props.trigger) ? (
         <div className={design.popup}>
             <div className={design.popupinner}>
-                <button className="btn btn-success space">
+                <button className="btn btn-success space" onClick={props.deleteData}>
                     Delete
                 </button>
                 <button className="btn btn-primary space" onClick={() => props.setTrigger(false)}>

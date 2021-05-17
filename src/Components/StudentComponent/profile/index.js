@@ -150,7 +150,22 @@ function StudentProfile() {
   const handleChange = (event) => {
     setGender(event.target.value);
   };
-
+  
+  const deleteData=(event)=>{
+    event.preventDefault();
+    console.log(" Data -c sent  :", enrlnum);
+    axios.post(`${url}api/deletes`, {
+        "StudentID" : enrlnum
+    })
+      .then((res) => {
+        console.log("Student Id sent for deletion", res);
+        history.push("/dashboard/student");
+      })
+      .catch((err) => {
+        console.log("Failed to delete student ", err);
+      }
+      )
+}; 
   const sendData = (event) => {
     event.preventDefault();
     //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
@@ -294,11 +309,12 @@ function StudentProfile() {
 
           </div>
         </div>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup} deleteData={deleteData}>
           <div>
             Enter the id of the student to be deleted
           </div>
-          <input type="text"></input>
+          <input type="text" value={enrlnum} onChange={enrollNum}> 
+          </input>
         </Popup>
       </div>
     </>

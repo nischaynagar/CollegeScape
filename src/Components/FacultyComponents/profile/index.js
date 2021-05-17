@@ -142,6 +142,22 @@ function FacultyProfile() {
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+ 
+  const deleteData=(event)=>{
+    event.preventDefault();
+    console.log(" Data -c sent  :", facultyID);
+    axios.post(`${url}api/deletef`, {
+        "FacultyID" : facultyID
+    })
+      .then((res) => {
+        console.log("faculty Id sent for deletion", res);
+        history.push("/dashboard/faculty");
+      })
+      .catch((err) => {
+        console.log("Failed to delete faculty ", err);
+      }
+      )
+}; 
 
   const sendData = (event) => {
     event.preventDefault();
@@ -308,16 +324,17 @@ function FacultyProfile() {
             </button>
 
             <br></br>
-            <button className="btn btn-warning space deleted" onClick={() => setButtonPopup(true)}>Delete Student</button>
+            <button className="btn btn-warning space deleted" onClick={() => setButtonPopup(true)}>Delete Faculty</button>
 
           </div>
         </div>
 
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup} deleteData={deleteData}>
           <div>
-            Enter the id of the student to be deleted
+            Enter the id of the faculty to be deleted
           </div>
-          <input type="text"></input>
+          <input type="text" value={facultyID} onChange={forFacultyID}> 
+          </input>
         </Popup>
       </div>
     </>
