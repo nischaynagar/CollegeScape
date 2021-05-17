@@ -71,6 +71,16 @@ function CurrentAdminProfile() {
       })
       .then((res) => {
         setUpdatedUserToLocalStorage();
+        dispatch({
+          type: "UPDATE_USER",
+          user: {
+            username: state.user.username,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            contact: contact,
+          },
+        });
       })
       .catch((err) => {
         console.log(err);
