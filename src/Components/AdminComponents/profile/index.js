@@ -49,6 +49,10 @@ const useStyles = {
 function CurrentAdminProfile() {
   const history = useHistory();
   const [state, dispatch] = useUser();
+  const [firstName, setFirstName] = useState(state.user.firstName);
+  const [lastName, setLastName] = useState(state.user.lastName);
+  const [email, setEmail] = useState(state.user.email);
+  const [contact, setContact] = useState(state.user.contact);
 
   const handleGoBack = () => {
     history.goBack();
@@ -75,16 +79,18 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="First Name"
-                defaultValue={state.user.firstName}
                 variant="outlined"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue={state.user.email}
                 variant="outlined"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className={design.col2}>
@@ -93,16 +99,18 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue={state.user.lastName}
                 variant="outlined"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={state.user.contact}
                 variant="outlined"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
               />
             </div>
           </div>
