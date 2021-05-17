@@ -21,6 +21,7 @@ import {
 import axios from "axios";
 import { url } from "../../../constants";
 import { useHistory } from "react-router-dom";
+import Popup from '../popupcomponent/popup.js';
 
 const genders = [
   {
@@ -187,6 +188,8 @@ function FacultyProfile() {
     history.goBack();
   };
 
+  const [buttonPopup, setButtonPopup] = useState(false);
+
   return (
     <>
       <div className={design.overview}>
@@ -303,8 +306,19 @@ function FacultyProfile() {
             >
               Save changes
             </button>
+
+            <br></br>
+            <button className="btn btn-warning space deleted" onClick={() => setButtonPopup(true)}>Delete Student</button>
+
           </div>
         </div>
+
+        <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+          <div>
+            Enter the id of the student to be deleted
+          </div>
+          <input type="text"></input>
+        </Popup>
       </div>
     </>
   );
