@@ -10,6 +10,11 @@ const reducer = (state, action) => {
         ...state,
         user: { ...action.user },
       };
+    case "UPDATE_USER":
+      return {
+        ...state,
+        user: { ...action.user },
+      };
     case "UNSET_USER":
       return {
         user: null,

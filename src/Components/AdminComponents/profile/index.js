@@ -17,6 +17,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@material-ui/core/styles";
 import mButton from "@material-ui/core/Button";
 import { useUser } from "../../../contexts/user";
+import axios from "axios";
+import { url } from "../../../constants";
 
 const ChangesButton = styled(mButton)({
   fontSize: "1.3vw",
@@ -49,9 +51,54 @@ const useStyles = {
 function CurrentAdminProfile() {
   const history = useHistory();
   const [state, dispatch] = useUser();
+  const [firstName, setFirstName] = useState(state.user.firstName);
+  const [lastName, setLastName] = useState(state.user.lastName);
+  const [email, setEmail] = useState(state.user.email);
+  const [contact, setContact] = useState(state.user.contact);
 
   const handleGoBack = () => {
     history.goBack();
+  };
+
+  const UpdateAdminProfile = () => {
+    axios
+      .put(`${url}api/update_admin`, {
+        username: state.user.username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        contact: contact,
+      })
+      .then((res) => {
+        setUpdatedUserToLocalStorage();
+        dispatch({
+          type: "UPDATE_USER",
+          user: {
+            username: state.user.username,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            contact: contact,
+          },
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const setUpdatedUserToLocalStorage = () => {
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        username: state.user.username,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        contact: contact,
+      })
+    );
+    console.log(localStorage.getItem("user"));
   };
 
   return (
@@ -75,16 +122,18 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="First Name"
-                defaultValue={state.user.firstName}
                 variant="outlined"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Email"
-                defaultValue={state.user.email}
                 variant="outlined"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className={design.col2}>
@@ -93,20 +142,25 @@ function CurrentAdminProfile() {
                 required
                 id="outlined-required"
                 label="Last Name"
-                defaultValue={state.user.lastName}
                 variant="outlined"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
               <TextField
                 style={useStyles}
                 required
                 id="outlined-required"
                 label="Phone number"
-                defaultValue={state.user.contact}
                 variant="outlined"
+                value={contact}
+                onChange={(e) => setContact(e.target.value)}
               />
             </div>
           </div>
-          <ChangesButton className={design.changesButton}>
+          <ChangesButton
+            className={design.changesButton}
+            onClick={UpdateAdminProfile}
+          >
             Apply Changes
           </ChangesButton>
         </div>
