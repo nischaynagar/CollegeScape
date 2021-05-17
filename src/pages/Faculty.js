@@ -7,6 +7,7 @@ import design from "../Components/DashboardComponents/statistics/styles.module.c
 import NewFaculty from "../Components/FacultyComponents/newfaculty/index.js";
 import FacultyCourses from "../Components/FacultyComponents/courses/index.js";
 import FacultyCourse from "../Components/FacultyComponents/facultycourse/index.js";
+import FacultyEditCourses from "../Components/FacultyComponents/editcoursesfaculty/index.js";
 
 export default function Faculty() {
   return (
@@ -21,6 +22,9 @@ export default function Faculty() {
           </Route>
           <Route path="/dashboard/faculty/courses" exact>
             <FacultyCourses/>
+          </Route>
+          <Route path="/dashboard/faculty/courses/edit" exact>
+            <FacultyEditCourses/>
           </Route>
           <Route path="/dashboard/faculty/coursedetails" exact>
             <FacultyCourse/>

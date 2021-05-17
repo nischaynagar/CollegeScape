@@ -1,0 +1,109 @@
+.overview {
+  width: 60vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 19px;
+  margin-top: 6vh;
+  background-color: #f4f9fd;
+}
+
+.headingWrapper {
+  margin-top: 2rem;
+  width: 60vw;
+}
+
+
+
+.title {
+  font-size: 2vw;
+  font-weight: bold;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 5vw;
+}
+
+.moveBackWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.moveBackImg {
+  padding-top: 10px;
+  margin: auto;
+}
+
+.moveBackText {
+    color: #834BFF;
+    font-weight: 800;
+    display: flex;
+    margin-left: 0.7vw !important;
+    height: 1vh;
+    font-size: 1.2rem;
+}
+.profileDetailsWrapper {
+  margin: 0.3rem auto;
+  width: 60vw;
+  height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+
+
+.coursebox {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  height: 10vh;
+  background-color: #2f2e41;
+  border-radius: 13px;
+  margin-bottom: 2vw;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1vw;
+}
+.coursebox:hover {
+  transition: 0.3s ease-in-out;
+  background-color: #4F1AC7;
+}
+.photo {
+  width: 4vw;
+}
+
+.id {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+.name {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #ffffff;
+  margin-left: 3vw;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
