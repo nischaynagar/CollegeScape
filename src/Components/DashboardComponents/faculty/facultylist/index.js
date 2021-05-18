@@ -33,7 +33,7 @@ const StyledButton = withStyles({
 var faculties = [];
 
 function FacultyList() {
-  // const history = useHistory();
+  const history = useHistory();
   const [loaded, setloaded] = useState(false);
 
   // const handleOpenprofile = () => {

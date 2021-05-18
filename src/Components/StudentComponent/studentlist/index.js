@@ -49,7 +49,7 @@ function StudentList() {
 
   const EachField = (props) => {
     return (
-      <div className={design.studentbox} onClick={()=>history.push(`./student/profile/${props.roll}`)}>
+      <div className={design.studentbox} onClick={()=>history.push(`./student/${props.roll}/profile`)}>
         <div className={design.RollAndPic}>
           <img src={mainpic} alt="hello" className={design.photo}></img>
           <div className={design.id}>{props.roll}</div>
