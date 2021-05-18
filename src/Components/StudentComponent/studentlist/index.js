@@ -31,7 +31,7 @@ const StyledButton = withStyles({
 
 let students = [];
 function StudentList() {
-  
+  const history = useHistory();
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
@@ -47,7 +47,20 @@ function StudentList() {
       });
   }, []);
 
+  const EachField = (props) => {
+    return (
+      <div className={design.studentbox} onClick={()=>history.push(`./student/profile/${props.roll}`)}>
+        <div className={design.RollAndPic}>
+          <img src={mainpic} alt="hello" className={design.photo}></img>
+          <div className={design.id}>{props.roll}</div>
+        </div>
+        <div className={design.name}>{props.name}</div>
+      </div>
+    );
+  };
+  
   return (
+    
     <div>
       <div className={design.overview}>
         <div className={design.searchmenu}>
@@ -88,18 +101,10 @@ function StudentList() {
       </div>
     </div>
   );
+
+  
 }
 
-const EachField = (props) => {
-  return (
-    <div className={design.studentbox} onClick={()=>history.push()}>
-      <div className={design.RollAndPic}>
-        <img src={mainpic} alt="hello" className={design.photo}></img>
-        <div className={design.id}>{props.roll}</div>
-      </div>
-      <div className={design.name}>{props.name}</div>
-    </div>
-  );
-};
+
 
 export default StudentList;

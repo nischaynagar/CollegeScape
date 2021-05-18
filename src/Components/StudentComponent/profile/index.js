@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, useParams } from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
@@ -100,15 +100,21 @@ let studentinfo;
 
 function StudentProfile(props) {
 
+  const {id} = useParams();
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [enrlnum, setEnrolnum] = useState();
-  const [emailaddr, setemailaddr] = useState();
-  const [batch, setBatch] = useState();
+  console.log(id);
+
+  // console.log("prop passed -" + props.location.state.id);
+
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [enrlnum, setEnrolnum] = useState('');
+  const [emailaddr, setemailaddr] = useState('');
+  const [batch, setBatch] = useState('');
   // const [gender, setGender] = useState();
-  const [dob, setdob] = useState();
-  const [phn, setphn] = useState();
+  const [dob, setdob] = useState('');
+  const [phn, setphn] = useState('');
 
   const forFirstName = (event) => {
     setFirstName(event.target.value);
@@ -140,7 +146,7 @@ function StudentProfile(props) {
 
 
 
-  const [gender, setGender] = React.useState('female');
+  const [gender, setGender] = useState('female');
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -156,19 +162,22 @@ function StudentProfile(props) {
 
   useEffect(() => {
     axios
-      .get(`${url}api/studentid`, {
-        id:props.id
+      .post(`${url}api/studentid`, {
+        id:id
       })
       .then((res) => {
         console.log("RR:", res);
         studentinfo = res.data;
       
-        forFirstName(studentinfo.firstName);
-        forLastName(studentinfo.lastName);
-        enrollNum(studentinfo.id);
-        forEmail(studentinfo.email);
-        forphn(studentinfo.contact);
-
+        console.log(res.data);
+        setFirstName(studentinfo[0].firstName);
+        setLastName(studentinfo[0].lastName);
+        setEnrolnum(studentinfo[0].id);
+        setemailaddr(studentinfo[0].email);
+        setphn(studentinfo[0].contact);
+        setBatch(studentinfo[0].batch);
+        setGender(studentinfo[0].gender);
+        setSelectedDate(studentinfo[0].DOB);
         setloaded(true);
       })
       .catch((err) => {

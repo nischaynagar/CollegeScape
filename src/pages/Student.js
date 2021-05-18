@@ -22,7 +22,7 @@ function Student() {
           <Route path="/dashboard/student/coursedetails" exact>
             <Studentcourse/>
           </Route>
-          <Route path="/dashboard/student/profile" exact>
+          <Route path="/dashboard/student/profile/:id" exact>
             <StudentProfile />
           </Route>
           <Route path="/dashboard/student/newstudent" exact>
