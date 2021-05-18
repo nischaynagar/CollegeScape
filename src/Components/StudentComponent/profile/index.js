@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
@@ -96,9 +96,10 @@ const useStyles = {
 // const lastName = "Rai";
 // const mobile = "+91692437294";
 
+let studentinfo;
 
+function StudentProfile(props) {
 
-function StudentProfile() {
 
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
@@ -150,6 +151,30 @@ function StudentProfile() {
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+
+  const [loaded, setloaded] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`${url}api/studentid`, {
+        id:props.id
+      })
+      .then((res) => {
+        console.log("RR:", res);
+        studentinfo = res.data;
+      
+        forFirstName(studentinfo.firstName);
+        forLastName(studentinfo.lastName);
+        enrollNum(studentinfo.id);
+        forEmail(studentinfo.email);
+        forphn(studentinfo.contact);
+
+        setloaded(true);
+      })
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+  }, []);
   
   const deleteData=(event)=>{
     event.preventDefault();
@@ -189,6 +214,33 @@ function StudentProfile() {
       }
       )
   };
+
+  // const UpdateAdminProfile = () => {
+  //   axios
+  //     .put(`${url}api/update_admin`, {
+  //       username: state.user.username,
+  //       firstName: firstName,
+  //       lastName: lastName,
+  //       email: email,
+  //       contact: contact,
+  //     })
+  //     .then((res) => {
+  //       setUpdatedUserToLocalStorage();
+  //       dispatch({
+  //         type: "UPDATE_USER",
+  //         user: {
+  //           username: state.user.username,
+  //           firstName: firstName,
+  //           lastName: lastName,
+  //           email: email,
+  //           contact: contact,
+  //         },
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   const [buttonPopup, setButtonPopup] = useState(false);
 
