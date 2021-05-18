@@ -1,8 +1,6 @@
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
-import {
-  useHistory,
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import design from "./styles.module.css";
 import searchbar from "./images/searchbar.svg";
 import React, { useState, useEffect, useRef } from "react";
@@ -26,9 +24,6 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-
-
-
 let students = [];
 function StudentList() {
   const history = useHistory();
@@ -49,7 +44,10 @@ function StudentList() {
 
   const EachField = (props) => {
     return (
-      <div className={design.studentbox} onClick={()=>history.push(`./student/profile/${props.roll}`)}>
+      <div
+        className={design.studentbox}
+        onClick={() => history.push(`./student/profile/${props.roll}`)}
+      >
         <div className={design.RollAndPic}>
           <img src={mainpic} alt="hello" className={design.photo}></img>
           <div className={design.id}>{props.roll}</div>
@@ -58,17 +56,16 @@ function StudentList() {
       </div>
     );
   };
-  
+
   return (
-    
     <div>
       <div className={design.overview}>
         <div className={design.searchmenu}>
           <img src={searchbar} alt="hello"></img>
-          <p className={design.optionname}>Search</p>
+          <div className={design.optionname}>Search</div>
         </div>
         <div className={design.heading}>
-          <p className={design.title}>Students</p>
+          <div className={design.title}>Students</div>
           <Link
             to="/dashboard/student/newstudent"
             style={{ textDecoration: "none" }}
@@ -77,34 +74,30 @@ function StudentList() {
           </Link>
         </div>
         <div className={design.studentbranch}>
-          <p className={design.branchname}>BTech IT</p>
+          <div className={design.branchname}>BTech IT</div>
 
           {loaded &&
             students.length > 0 &&
             students.map((e) => {
               return (
-                <EachField name={e.firstName + " " + e.lastName} roll={e.id}/>
+                <EachField name={e.firstName + " " + e.lastName} roll={e.id} />
               );
             })}
 
           {/* <div className={design.studentbox}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019198</p>
-            <p className={design.name}>Nischay Nagar</p>
+            <div className={design.id}>IIT2019198</div>
+            <div className={design.name}>Nischay Nagar</div>
           </div>
           <div className={design.studentbox}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019194</p>
-            <p className={design.name}>Rahul Rai</p>
+            <div className={design.id}>IIT2019194</div>
+            <div className={design.name}>Rahul Rai</div>
           </div> */}
         </div>
       </div>
     </div>
   );
-
-  
 }
-
-
 
 export default StudentList;
