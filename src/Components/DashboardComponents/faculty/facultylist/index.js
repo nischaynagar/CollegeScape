@@ -5,7 +5,7 @@ import {
   Route,
   useHistory,
   Link,
-  useLocation
+  useLocation,
 } from "react-router-dom";
 import design from "./facultylist.module.css";
 import searchbar from "../../../../images/searchbar.svg";
@@ -70,10 +70,10 @@ function FacultyList() {
       <div className={design.overview}>
         <div className={design.searchmenu}>
           <img src={searchbar} alt="hello"></img>
-          <p className={design.optionname}>Search</p>
+          <div className={design.optionname}>Search</div>
         </div>
         <div className={design.heading}>
-          <p className={design.title}>Faculties</p>
+          <div className={design.title}>Faculties</div>
           <Link
             to="/dashboard/faculty/newfaculty"
             style={{ textDecoration: "none" }}
@@ -92,18 +92,18 @@ function FacultyList() {
 
           {/* <div className={design.facultybox} onClick={handleOpenprofile}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019232</p>
-            <p className={design.name}>Bineet Wagh</p>
+            <div className={design.id}>IIT2019232</div>
+            <div className={design.name}>Bineet Wagh</div>
           </div>
           <div className={design.facultybox} onClick={handleOpenprofile}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019198</p>
-            <p className={design.name}>Nischay Nagar</p>
+            <div className={design.id}>IIT2019198</div>
+            <div className={design.name}>Nischay Nagar</div>
           </div>
           <div className={design.facultybox} onClick={handleOpenprofile}>
             <img src={mainpic} alt="hello" className={design.photo}></img>
-            <p className={design.id}>IIT2019194</p>
-            <p className={design.name}>Rahul Rai</p>
+            <div className={design.id}>IIT2019194</div>
+            <div className={design.name}>Rahul Rai</div>
           </div> */}
         </div>
       </div>
