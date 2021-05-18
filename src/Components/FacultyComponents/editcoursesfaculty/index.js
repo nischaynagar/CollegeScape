@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
@@ -20,7 +20,7 @@ import {
 } from '@material-ui/pickers';
 import axios from "axios";
 import { url } from "../../../constants";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Checkbox from '@material-ui/core/Checkbox';
 
 const CustomCheckbox = withStyles({
@@ -68,7 +68,40 @@ const CoursesButton = styled(mButton)({
 // const lastName = "Rai";
 // const mobile = "+91692437294";
 
+let courses = [];
+
 function FacultyEditCourses() {
+
+  const [loaded, setloaded] = useState(false);
+
+  useEffect(() => {
+    axios
+      .get(`${url}api/coursedisp`)
+      .then((res) => {
+        console.log("RR:", res);
+        courses = Array.from(res.data);
+        setloaded(true);
+      })
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+  }, []);
+
+  const [courseName, setCourseName] = useState();
+  const [courseId, setCourseId] = useState();
+  const [facultyName, setFaculty] = useState();
+
+  const forCourseName = (event) => {
+    setCourseName(event.target.value);
+  };
+
+  const forCourseId = (event) => {
+    setCourseId(event.target.value);
+  };
+
+  const forFaculty = (event) => {
+    setFaculty(event.target.value);
+  };
 
   const [state, setState] = React.useState({
     checkedA: true,
@@ -80,6 +113,39 @@ function FacultyEditCourses() {
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+  const history = useHistory();
+
+  // const sendData = (event) => {
+  //   event.preventDefault();
+  //   //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
+  //   console.log(" Data -c sent  :", courseName, " ", courseId, " ", facultyName);
+  //   axios.post(`${url}api/insertc`, {
+  //     "coursename": courseName,
+  //     "courseid": courseId,
+  //     "faculty": facultyName,
+  //   })
+  //     .then((res) => {
+  //       console.log("Entry registered in courses list: ", res);
+  //       history.push("/dashboard/faculty/courses/edit");
+  //     })
+  //     .catch((err) => {
+  //       console.log("Failed to register course: ", err);
+  //     }
+  //     )
+  // };
+
+  const EachField = (props) => {
+    return (
+      <div className={design.coursebox}>
+        <div className={design.checkbox}>
+          <CustomCheckbox checked={state.checkedA} onChange={handleChange} name="checkedA" />
+        </div>
+        <div className={design.name}>{props.cid}</div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className={design.overview}>
@@ -87,13 +153,23 @@ function FacultyEditCourses() {
           <div className={design.heading}>
             <p className={design.title}>Select courses</p>
             <div className={design.moveBackWrapper}>
-              <img className={design.moveBackImg} src={arrow} alt="move back"/>
+              <img className={design.moveBackImg} src={arrow} alt="move back" />
               <h4 className={design.moveBackText} >Move Back</h4>
             </div>
           </div>
         </div>
         <div className={design.profileDetailsWrapper}>
-        <div className={design.coursebox}>
+
+          {loaded &&
+            courses.length > 0 &&
+            courses.map((e) => {
+              return (
+                <EachField cid={e.courseID}/>
+              );
+            })}
+
+
+          {/* <div className={design.coursebox}>
             <div className={design.checkbox}>
               <CustomCheckbox checked={state.checkedA} onChange={handleChange} name="checkedA" />
             </div>
@@ -115,16 +191,18 @@ function FacultyEditCourses() {
             <div className={design.checkbox}>
               <CustomCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />
             </div>
-            <div className={design.name}>PUBG</div>
-          </div>
-          
+            <div className={design.name}>PUBG</div> */}
+          {/* </div> */}
 
-          
-            <CoursesButton>Save</CoursesButton>
+
+
+          <CoursesButton>Save</CoursesButton>
         </div>
       </div>
     </>
   );
 }
+
+
 
 export default FacultyEditCourses;
