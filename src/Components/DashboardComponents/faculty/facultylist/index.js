@@ -53,6 +53,18 @@ function FacultyList() {
       });
   }, []);
 
+  const EachField = (props) => {
+    return (
+      <div className={design.facultybox} onClick={()=>history.push(`./faculty/${props.roll}/profile`)}>
+        <div className={design.RollAndPic}>
+          <img src={mainpic} alt="hello" className={design.photo}></img>
+          <div className={design.id}>{props.roll}</div>
+        </div>
+        <div className={design.name}>{props.name}</div>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className={design.overview}>
@@ -99,16 +111,6 @@ function FacultyList() {
   );
 }
 
-const EachField = (props) => {
-  return (
-    <div className={design.facultybox}>
-      <div className={design.RollAndPic}>
-        <img src={mainpic} alt="hello" className={design.photo}></img>
-        <div className={design.id}>{props.roll}</div>
-      </div>
-      <div className={design.name}>{props.name}</div>
-    </div>
-  );
-};
+
 
 export default FacultyList;

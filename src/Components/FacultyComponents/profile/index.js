@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { HashRouter as Router, Switch, Route , useParams} from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
@@ -92,6 +92,12 @@ const useStyles = {
 // const mobile = "+91692437294";
 
 function FacultyProfile() {
+
+  const {id} = useParams();
+
+  console.log(id);
+
+
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [facultyID, setFacultyID] = useState();
