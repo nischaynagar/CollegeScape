@@ -217,43 +217,7 @@ function NewStudent() {
               />
             </MuiPickersUtilsProvider>
           </div>
-          <div className={design.col2}>
-            <TextField
-              style={useStyles}
-              required
-              id="outlined-required"
-              label="First Name"
-              value={firstName}
-              variant="outlined"
-              onChange={forFirstName}
-            />
-            <TextField
-              style={useStyles}
-              required
-              id="outlined-required"
-              label="Email"
-              value={emailaddr}
-              variant="outlined"
-              onChange={forEmail}
-            />
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <KeyboardDatePicker
-                style={useStyles}
-                disableToolbar
-                required
-                inputVariant="outlined"
-                format="MM/dd/yyyy"
-                margin="normal"
-                id="date-picker-inline"
-                label="Date of birth"
-                value={selectedDate}
-                onChange={handleDateChange}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
-            </MuiPickersUtilsProvider>
-          </div>
+          
           <div className={design.col2}>
             <TextField
               style={useStyles}
