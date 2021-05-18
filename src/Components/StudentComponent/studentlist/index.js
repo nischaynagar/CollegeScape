@@ -1,5 +1,8 @@
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
+import {
+  useHistory,
+} from "react-router-dom";
 import design from "./styles.module.css";
 import searchbar from "./images/searchbar.svg";
 import React, { useState, useEffect, useRef } from "react";
@@ -23,8 +26,12 @@ const StyledButton = withStyles({
   },
 })(Button);
 
+
+
+
 let students = [];
 function StudentList() {
+  
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
@@ -63,7 +70,7 @@ function StudentList() {
             students.length > 0 &&
             students.map((e) => {
               return (
-                <EachField name={e.firstName + " " + e.lastName} roll={e.id} />
+                <EachField name={e.firstName + " " + e.lastName} roll={e.id}/>
               );
             })}
 
@@ -85,7 +92,7 @@ function StudentList() {
 
 const EachField = (props) => {
   return (
-    <div className={design.studentbox}>
+    <div className={design.studentbox} onClick={()=>history.push()}>
       <div className={design.RollAndPic}>
         <img src={mainpic} alt="hello" className={design.photo}></img>
         <div className={design.id}>{props.roll}</div>
