@@ -174,7 +174,7 @@ function StudentProfile(props) {
         setemailaddr(studentinfo[0].email);
         setphn(studentinfo[0].contact);
         setBatch(studentinfo[0].batch);
-        setGender(studentinfo[0].gender);
+        setGender(studentinfo[0].gender.toLowerCase());
         setSelectedDate(studentinfo[0].DOB);
         setloaded(true);
       })

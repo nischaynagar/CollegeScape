@@ -17,16 +17,16 @@ export default function Faculty() {
           <Route path="/dashboard/faculty" exact>
             <FacultyList />
           </Route>
-          <Route path="/dashboard/faculty/profile" exact>
+          <Route path="/dashboard/faculty/:id/profile" exact>
             <FacultyProfile />
           </Route>
-          <Route path="/dashboard/faculty/courses" exact>
+          <Route path="/dashboard/faculty/:id/courses" exact>
             <FacultyCourses/>
           </Route>
-          <Route path="/dashboard/faculty/courses/edit" exact>
+          <Route path="/dashboard/faculty/:id/courses/edit" exact>
             <FacultyEditCourses/>
           </Route>
-          <Route path="/dashboard/faculty/coursedetails" exact>
+          <Route path="/dashboard/faculty/:id/coursedetails" exact>
             <FacultyCourse/>
           </Route>
           <Route path="/dashboard/faculty/newfaculty" exact>

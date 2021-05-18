@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-bootstrap";
 import "./bootstrap-css/bootstrap.min.css";
 import { styled } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 import mButton from "@material-ui/core/Button";
 
 const CoursesButton = styled(mButton)({
@@ -33,6 +34,7 @@ const CoursesButton = styled(mButton)({
 
 
 function Courses() {
+  const history = useHistory();
 
   return (
     <div>
@@ -151,7 +153,7 @@ function Courses() {
           </div>
         </div>
 
-        <CoursesButton>Edit courses</CoursesButton>
+        <CoursesButton onClick={()=>history.push(`./courses/edit`)}>Edit courses</CoursesButton>
 
       </div>
     </div>
