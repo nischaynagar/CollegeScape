@@ -76,7 +76,8 @@ function NewStudent() {
   const [emailaddr, setemailaddr] = useState();
   const [batch, setBatch] = useState();
   // const [gender, setGender] = useState();
-  const [dob, setdob] = useState();
+  const [dob, setdob] = useState(null);
+
   const [phn, setphn] = useState();
 
   const forFirstName = (event) => {
@@ -87,6 +88,9 @@ function NewStudent() {
     setLastName(event.target.value);
   };
 
+  const fordob = (date) => {
+    setdob(date);
+  };
   const enrollNum = (event) => {
     setEnrolnum(event.target.value);
   };
@@ -177,6 +181,43 @@ function NewStudent() {
         <div className={design.profileDetailsWrapper}>
           <div className={design.col1}>
             <img className={design.profileImg} src={mainpic} alt="student" />
+            <TextField
+              style={useStyles}
+              required
+              id="outlined-required"
+              label="First Name"
+              value={firstName}
+              variant="outlined"
+              onChange={forFirstName}
+            />
+            <TextField
+              style={useStyles}
+              required
+              id="outlined-required"
+              label="Email"
+              value={emailaddr}
+              variant="outlined"
+              onChange={forEmail}
+            />
+            <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                style={useStyles}
+                disableToolbar
+                required
+                inputVariant="outlined"
+                format="dd/MM/yyyy"
+                margin="normal"
+                id="date-picker-inline"
+                label="Date of birth"
+                value={dob}
+                onChange={fordob}
+                KeyboardButtonProps={{
+                  "aria-label": "change date",
+                }}
+              />
+            </MuiPickersUtilsProvider>
+          </div>
+          <div className={design.col2}>
             <TextField
               style={useStyles}
               required

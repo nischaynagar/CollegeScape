@@ -16,13 +16,13 @@ function Student() {
           <Route path="/dashboard/student" exact>
             <StudentList />
           </Route>
-          <Route path="/dashboard/student/courses" exact>
+          <Route path="/dashboard/student/:id/courses" exact>
             <Courses/>
           </Route>
           <Route path="/dashboard/student/coursedetails" exact>
             <Studentcourse/>
           </Route>
-          <Route path="/dashboard/student/profile/:id" exact>
+          <Route path="/dashboard/student/:id/profile" exact>
             <StudentProfile />
           </Route>
           <Route path="/dashboard/student/newstudent" exact>

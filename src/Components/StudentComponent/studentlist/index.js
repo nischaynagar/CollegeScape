@@ -46,7 +46,7 @@ function StudentList() {
     return (
       <div
         className={design.studentbox}
-        onClick={() => history.push(`./student/profile/${props.roll}`)}
+        onClick={() => history.push(`./student/${props.roll}/profile`)}
       >
         <div className={design.RollAndPic}>
           <img src={mainpic} alt="hello" className={design.photo}></img>
