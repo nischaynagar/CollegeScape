@@ -83,7 +83,9 @@ function NewStudent() {
   const [emailaddr, setemailaddr] = useState();
   const [batch, setBatch] = useState();
   // const [gender, setGender] = useState();
-  const [dob, setdob] = useState();
+  const [dob, setdob] = useState(null);
+
+  
   const [phn, setphn] = useState();
 
   const forFirstName = (event) => {
@@ -94,6 +96,9 @@ function NewStudent() {
     setLastName(event.target.value);
   };
 
+  const fordob = (date) => {
+    setdob(date);
+  }
   const enrollNum = (event) => {
     setEnrolnum(event.target.value);
   };
@@ -189,12 +194,12 @@ function NewStudent() {
                   disableToolbar
                   required
                   inputVariant="outlined"
-                  format="MM/dd/yyyy"
+                  format="dd/MM/yyyy"
                   margin="normal"
                   id="date-picker-inline"
                   label="Date of birth"
-                  value={selectedDate}
-                  onChange={handleDateChange}
+                  value={dob}
+                  onChange={fordob}
                   KeyboardButtonProps={{
                     'aria-label': 'change date',
                   }}

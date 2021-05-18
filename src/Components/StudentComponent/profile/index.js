@@ -304,7 +304,7 @@ function StudentProfile(props) {
                 }}
               />
             </MuiPickersUtilsProvider>
-            <CoursesButton>Enrolled Courses</CoursesButton>
+            <CoursesButton onClick={()=>history.push(`./courses`)}>Enrolled Courses</CoursesButton>
           </div>
           <div className={design.col2}>
             <TextField
