@@ -1,37 +1,42 @@
 import React, { useState, useEffect, useRef } from "react";
-import { HashRouter as Router, Switch, Route, useParams } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
 import mainpic from "./images/mainpic.svg";
-import design from './profile.module.css'
+import design from "./profile.module.css";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@material-ui/core/styles";
 import mButton from "@material-ui/core/Button";
-import MenuItem from '@material-ui/core/MenuItem';
-import DateFnsUtils from '@date-io/date-fns';
+import MenuItem from "@material-ui/core/MenuItem";
+import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-} from '@material-ui/pickers';
+} from "@material-ui/pickers";
 import axios from "axios";
 import { url } from "../../../constants";
 import { useHistory } from "react-router-dom";
-import Popup from '../popupcomponent/popup.js';
+import Popup from "../popupcomponent/popup.js";
 
 const genders = [
   {
-    value: 'male',
-    label: 'Male',
+    value: "male",
+    label: "Male",
   },
   {
-    value: 'female',
-    label: 'Female',
-  }
+    value: "female",
+    label: "Female",
+  },
 ];
 
 const CoursesButton = styled(mButton)({
@@ -43,8 +48,7 @@ const CoursesButton = styled(mButton)({
   textTransform: "none",
   fontFamily: "Montserrat",
   // transition: "all 0.9s ease-in-out",
-  background:
-    "#0E2A47",
+  background: "#0E2A47",
   // border: 0,
   // borderRadius: 3,
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
@@ -52,8 +56,7 @@ const CoursesButton = styled(mButton)({
   height: 48,
   padding: "0 30px",
   "&:hover": {
-    background:
-      "#216FC0",
+    background: "#216FC0",
   },
 });
 
@@ -66,8 +69,7 @@ const ChangesButton = styled(mButton)({
   textTransform: "none",
   fontFamily: "Montserrat",
   // transition: "all 0.9s ease-in-out",
-  background:
-    "#834BFF",
+  background: "#834BFF",
   // border: 0,
   // borderRadius: 3,
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
@@ -75,18 +77,16 @@ const ChangesButton = styled(mButton)({
   height: 48,
   padding: "0 30px",
   "&:hover": {
-    background:
-      "#C0A4FF",
+    background: "#C0A4FF",
   },
 });
 
 const useStyles = {
-  margin: '1rem 3rem',
-  '& .MuiTextField-root': {
-    width: '25ch',
-  }
+  margin: "1rem 3rem",
+  "& .MuiTextField-root": {
+    width: "25ch",
+  },
 };
-
 
 // const firstName = "Rahul";
 // const email = "rahulrai@orissa.com";
@@ -99,22 +99,20 @@ const useStyles = {
 let studentinfo;
 
 function StudentProfile(props) {
-
-  const {id} = useParams();
+  const { id } = useParams();
 
   console.log(id);
 
   // console.log("prop passed -" + props.location.state.id);
 
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [enrlnum, setEnrolnum] = useState('');
-  const [emailaddr, setemailaddr] = useState('');
-  const [batch, setBatch] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [enrlnum, setEnrolnum] = useState("");
+  const [emailaddr, setemailaddr] = useState("");
+  const [batch, setBatch] = useState("");
   // const [gender, setGender] = useState();
-  const [dob, setdob] = useState('');
-  const [phn, setphn] = useState('');
+  const [dob, setdob] = useState("");
+  const [phn, setphn] = useState("");
 
   const forFirstName = (event) => {
     setFirstName(event.target.value);
@@ -142,16 +140,16 @@ function StudentProfile(props) {
 
   const history = useHistory();
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2014-08-18T21:11:54'));
+  const [selectedDate, setSelectedDate] = React.useState(
+    new Date("2014-08-18T21:11:54")
+  );
 
-
-
-  const [gender, setGender] = useState('female');
+  const [gender, setGender] = useState("female");
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setdob(selectedDate);
-    console.log("date:", date)
+    console.log("date:", date);
   };
 
   const handleChange = (event) => {
@@ -163,12 +161,12 @@ function StudentProfile(props) {
   useEffect(() => {
     axios
       .post(`${url}api/studentid`, {
-        id:id
+        id: id,
       })
       .then((res) => {
         console.log("RR:", res);
         studentinfo = res.data;
-      
+
         console.log(res.data);
         setFirstName(studentinfo[0].firstName);
         setLastName(studentinfo[0].lastName);
@@ -184,44 +182,61 @@ function StudentProfile(props) {
         console.log("Err: ", err);
       });
   }, []);
-  
-  const deleteData=(event)=>{
+
+  const deleteData = (event) => {
     event.preventDefault();
     console.log(" Data -c sent  :", enrlnum);
-    axios.post(`${url}api/deletes`, {
-        "StudentID" : enrlnum
-    })
+    axios
+      .post(`${url}api/deletes`, {
+        StudentID: enrlnum,
+      })
       .then((res) => {
         console.log("Student Id sent for deletion", res);
         history.push("/dashboard/student");
       })
       .catch((err) => {
         console.log("Failed to delete student ", err);
-      }
-      )
-}; 
+      });
+  };
   const sendData = (event) => {
     event.preventDefault();
-    //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
-    console.log(" Data -c sent  :", firstName, " ", lastName, " ", enrlnum, " ", emailaddr, " ", gender, " ", phn, " ", batch, " ", dob);
-    axios.post(`${url}api/inserts`, {
-      "firstName": firstName,
-      "lastName": lastName,
-      "id": enrlnum,
-      "emailAddress": emailaddr,
-      "sex": gender,
-      "phoneno": phn,
-      "currentbatch": batch,
-      "doB": dob
-    })
+    //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob);
+    console.log(
+      " Data -c sent  :",
+      firstName,
+      " ",
+      lastName,
+      " ",
+      enrlnum,
+      " ",
+      emailaddr,
+      " ",
+      gender,
+      " ",
+      phn,
+      " ",
+      batch,
+      " ",
+      dob
+    );
+    axios
+      .post(`${url}api/inserts`, {
+        firstName: firstName,
+        lastName: lastName,
+        id: enrlnum,
+        emailAddress: emailaddr,
+        sex: gender,
+        phoneno: phn,
+        currentbatch: batch,
+        doB: dob,
+      })
       .then((res) => {
         console.log("Entry registered in student list: ", res);
         history.push("/dashboard/student");
       })
       .catch((err) => {
         console.log("Failed to register student: ", err);
-      }
-      )
+      });
   };
 
   // const UpdateAdminProfile = () => {
@@ -253,15 +268,19 @@ function StudentProfile(props) {
 
   const [buttonPopup, setButtonPopup] = useState(false);
 
+  const handleGoBack = () => {
+    history.goBack();
+  };
+
   return (
     <>
       <div className={design.overview}>
         <div className={design.headingWrapper}>
           <div className={design.heading}>
             <p className={design.title}>Student's Profile</p>
-            <div className={design.moveBackWrapper}>
+            <div className={design.moveBackWrapper} onClick={handleGoBack}>
               <img className={design.moveBackImg} src={arrow} alt="move back" />
-              <h4 className={design.moveBackText} >Move Back</h4>
+              <h4 className={design.moveBackText}>Move Back</h4>
             </div>
           </div>
         </div>
@@ -300,7 +319,7 @@ function StudentProfile(props) {
                 value={selectedDate}
                 onChange={handleDateChange}
                 KeyboardButtonProps={{
-                  'aria-label': 'change date',
+                  "aria-label": "change date",
                 }}
               />
             </MuiPickersUtilsProvider>
@@ -353,29 +372,39 @@ function StudentProfile(props) {
               value={gender}
               defaultValue={gender}
               variant="outlined"
-            >{genders.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}</TextField>
-
+            >
+              {genders.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
 
             {/* <ChangesButton onChange={sendData}>Apply Changes</ChangesButton> */}
-            <button className="btn btn-success space" type="submit" onClick={sendData}>
+            <button
+              className="btn btn-success space"
+              type="submit"
+              onClick={sendData}
+            >
               Save changes
-                </button>
+            </button>
 
             <br></br>
-            <button className="btn btn-warning space deleted" onClick={() => setButtonPopup(true)}>Delete Student</button>
-
+            <button
+              className="btn btn-warning space deleted"
+              onClick={() => setButtonPopup(true)}
+            >
+              Delete Student
+            </button>
           </div>
         </div>
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup} deleteData={deleteData}>
-          <div>
-            Enter the id of the student to be deleted
-          </div>
-          <input type="text" value={enrlnum} onChange={enrollNum}> 
-          </input>
+        <Popup
+          trigger={buttonPopup}
+          setTrigger={setButtonPopup}
+          deleteData={deleteData}
+        >
+          <div>Enter the id of the student to be deleted</div>
+          <input type="text" value={enrlnum} onChange={enrollNum}></input>
         </Popup>
       </div>
     </>

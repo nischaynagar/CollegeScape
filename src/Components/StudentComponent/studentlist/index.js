@@ -57,6 +57,10 @@ function StudentList() {
     );
   };
 
+  const handleGoBack = () => {
+    history.goBack();
+  };
+
   return (
     <div>
       <div className={design.overview}>
