@@ -90,6 +90,7 @@ const useStyles = {
 // const batch = "IT2019";
 // const lastName = "Rai";
 // const mobile = "+91692437294";
+let facultyinfo;
 
 function FacultyProfile() {
 
@@ -98,14 +99,14 @@ function FacultyProfile() {
   console.log(id);
 
 
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [facultyID, setFacultyID] = useState();
-  const [emailaddr, setemailaddr] = useState();
-  const [batch, setBatch] = useState();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [facultyID, setFacultyID] = useState('');
+  const [emailaddr, setemailaddr] = useState('');
+  const [batch, setBatch] = useState('');
   // const [gender, setGender] = useState();
-  const [dob, setdob] = useState();
-  const [phn, setphn] = useState();
+  const [dob, setdob] = useState(null);
+  const [phn, setphn] = useState('');
 
   const forFirstName = (event) => {
     setFirstName(event.target.value);
@@ -148,6 +149,33 @@ function FacultyProfile() {
   const handleChange = (event) => {
     setGender(event.target.value);
   };
+
+  const [loaded, setloaded] = useState(false);
+
+  useEffect(() => {
+    axios
+      .post(`${url}api/facultyid`, {
+        id: id,
+      })
+      .then((res) => {
+        console.log("RR:", res);
+        facultyinfo = res.data;
+
+        console.log(res.data);
+        setFirstName(facultyinfo[0].firstName);
+        setLastName(facultyinfo[0].lastName);
+        setFacultyID(facultyinfo[0].id);
+        setemailaddr(facultyinfo[0].email);
+        setphn(facultyinfo[0].contact);
+        setBatch(facultyinfo[0].batch);
+        setGender(facultyinfo[0].gender.toLowerCase());
+        setSelectedDate(facultyinfo[0].DOB);
+        setloaded(true);
+      })
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+  }, []);
  
   const deleteData=(event)=>{
     event.preventDefault();
@@ -263,7 +291,7 @@ function FacultyProfile() {
                 }}
               />
             </MuiPickersUtilsProvider>
-            <CoursesButton>Assigned Courses</CoursesButton>
+            <CoursesButton onClick={()=>history.push(`./courses`)}>Assigned Courses</CoursesButton>
           </div>
           <div className={design.col2}>
             <TextField
