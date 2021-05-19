@@ -311,6 +311,7 @@ function StudentProfile(props) {
                 style={useStyles}
                 disableToolbar
                 required
+                disabled
                 inputVariant="outlined"
                 format="MM/dd/yyyy"
                 margin="normal"
@@ -336,6 +337,7 @@ function StudentProfile(props) {
               value={enrlnum}
               variant="outlined"
               onChange={enrollNum}
+              disabled
             />
             <TextField
               style={useStyles}
