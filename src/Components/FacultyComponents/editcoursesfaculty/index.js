@@ -4,35 +4,34 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
 import mainpic from "./images/mainpic.svg";
-import design from './styles.module.css'
+import design from "./styles.module.css";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
 import { styled } from "@material-ui/core/styles";
 import mButton from "@material-ui/core/Button";
-import MenuItem from '@material-ui/core/MenuItem';
-import DateFnsUtils from '@date-io/date-fns';
+import MenuItem from "@material-ui/core/MenuItem";
+import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-} from '@material-ui/pickers';
+} from "@material-ui/pickers";
 import axios from "axios";
 import { url } from "../../../constants";
 import { useHistory } from "react-router-dom";
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from "@material-ui/core/Checkbox";
 
 const CustomCheckbox = withStyles({
   root: {
     color: "#834BFF",
-    '&$checked': {
+    "&$checked": {
       color: "#834BFF",
     },
   },
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
-
 
 const CoursesButton = styled(mButton)({
   fontSize: "1.3vw",
@@ -43,8 +42,7 @@ const CoursesButton = styled(mButton)({
   textTransform: "none",
   fontFamily: "Montserrat",
   // transition: "all 0.9s ease-in-out",
-  background:
-    "#0E2A47",
+  background: "#0E2A47",
   // border: 0,
   // borderRadius: 3,
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
@@ -52,13 +50,9 @@ const CoursesButton = styled(mButton)({
   height: 48,
   padding: "0 30px",
   "&:hover": {
-    background:
-      "#216FC0",
+    background: "#216FC0",
   },
 });
-
-
-
 
 // const firstName = "Rahul";
 // const email = "rahulrai@orissa.com";
@@ -71,7 +65,6 @@ const CoursesButton = styled(mButton)({
 let courses = [];
 
 function FacultyEditCourses() {
-
   const [loaded, setloaded] = useState(false);
 
   useEffect(() => {
@@ -108,7 +101,7 @@ function FacultyEditCourses() {
     checkedB: true,
     checkedF: true,
     checkedG: true,
-  })
+  });
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
@@ -118,7 +111,7 @@ function FacultyEditCourses() {
 
   // const sendData = (event) => {
   //   event.preventDefault();
-  //   //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob); 
+  //   //  console.log("Final Data sent is :",finalfirstName," ",finallastName," ",finalenrlnum," ",finalemailaddr," ",finalgender," ",finalphn," ",finalbatch," ",finaldob);
   //   console.log(" Data -c sent  :", courseName, " ", courseId, " ", facultyName);
   //   axios.post(`${url}api/insertc`, {
   //     "coursename": courseName,
@@ -139,7 +132,11 @@ function FacultyEditCourses() {
     return (
       <div className={design.coursebox}>
         <div className={design.checkbox}>
-          <CustomCheckbox checked={state.checkedA} onChange={handleChange} name="checkedA" />
+          <CustomCheckbox
+            checked={state.checkedA}
+            onChange={handleChange}
+            name="checkedA"
+          />
         </div>
         <div className={design.name}>{props.cid}</div>
       </div>
@@ -152,22 +149,21 @@ function FacultyEditCourses() {
         <div className={design.headingWrapper}>
           <div className={design.heading}>
             <p className={design.title}>Select courses</p>
-            <div className={design.moveBackWrapper}>
+            <div
+              className={design.moveBackWrapper}
+              onClick={() => history.goBack()}
+            >
               <img className={design.moveBackImg} src={arrow} alt="move back" />
-              <h4 className={design.moveBackText} >Move Back</h4>
+              <h4 className={design.moveBackText}>Move Back</h4>
             </div>
           </div>
         </div>
         <div className={design.profileDetailsWrapper}>
-
           {loaded &&
             courses.length > 0 &&
             courses.map((e) => {
-              return (
-                <EachField cid={e.courseID}/>
-              );
+              return <EachField cid={e.courseID} />;
             })}
-
 
           {/* <div className={design.coursebox}>
             <div className={design.checkbox}>
@@ -194,15 +190,11 @@ function FacultyEditCourses() {
             <div className={design.name}>PUBG</div> */}
           {/* </div> */}
 
-
-
           <CoursesButton>Save</CoursesButton>
         </div>
       </div>
     </>
   );
 }
-
-
 
 export default FacultyEditCourses;

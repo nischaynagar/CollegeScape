@@ -16,7 +16,7 @@ function FacultyCourse() {
           <p className={design.optionname}>Search</p>
         </div>
         <div className={design.heading}>
-          <p className={design.title}>Teacher ka course</p>
+          <p className={design.title}>Teacher's course</p>
           <div className={design.sideback}>
             <img src={arrow} alt="hello"></img>
             <p className={design.back}>Move back</p>
