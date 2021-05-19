@@ -13,8 +13,6 @@
   width: 60vw;
 }
 
-
-
 .title {
   font-size: 2vw;
   font-weight: bold;
@@ -29,10 +27,10 @@
 }
 
 .moveBackWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .moveBackImg {
@@ -41,12 +39,12 @@
 }
 
 .moveBackText {
-    color: #834BFF;
-    font-weight: 800;
-    display: flex;
-    margin-left: 0.7vw !important;
-    height: 1vh;
-    font-size: 1.2rem;
+  color: #834bff;
+  font-weight: 800;
+  display: flex;
+  margin-left: 0.7vw !important;
+  height: 1vh;
+  font-size: 1.2rem;
 }
 .profileDetailsWrapper {
   margin: 0.3rem auto;
@@ -58,8 +56,6 @@
   align-items: center;
   overflow-y: scroll;
 }
-
-
 
 .coursebox {
   margin: auto;
@@ -76,7 +72,7 @@
 }
 .coursebox:hover {
   transition: 0.3s ease-in-out;
-  background-color: #4F1AC7;
+  background-color: #4f1ac7;
 }
 .photo {
   width: 4vw;
