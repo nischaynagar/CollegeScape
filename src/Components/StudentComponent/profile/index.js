@@ -220,18 +220,18 @@ function StudentProfile(props) {
       dob
     );
     axios
-      .post(`${url}api/inserts`, {
-        firstName: firstName,
-        lastName: lastName,
+      .put(`${url}api/update_student`, {
         id: enrlnum,
-        emailAddress: emailaddr,
-        sex: gender,
-        phoneno: phn,
-        currentbatch: batch,
+        fName: firstName,
+        lName: lastName,
+        email: emailaddr,
+        gender: gender,
+        contact: phn,
+        batch: batch,
         doB: dob,
       })
       .then((res) => {
-        console.log("Entry registered in student list: ", res);
+        console.log("student updated: ", res);
         history.push("/dashboard/student");
       })
       .catch((err) => {
@@ -323,7 +323,9 @@ function StudentProfile(props) {
                 }}
               />
             </MuiPickersUtilsProvider>
-            <CoursesButton onClick={()=>history.push(`./courses`)}>Enrolled Courses</CoursesButton>
+            <CoursesButton onClick={() => history.push(`./courses`)}>
+              Enrolled Courses
+            </CoursesButton>
           </div>
           <div className={design.col2}>
             <TextField
