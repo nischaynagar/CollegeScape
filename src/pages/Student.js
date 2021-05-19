@@ -7,6 +7,7 @@ import StudentList from "../Components/StudentComponent/studentlist";
 import StudentProfile from "../Components/StudentComponent/profile";
 import design from "../Components/DashboardComponents/statistics/styles.module.css";
 import NewStudent from "../Components/StudentComponent/newstudent/index.js";
+import StudentEditCourses from "../Components/StudentComponent/editcoursesstudent/index.js";
 
 function Student() {
   return (
@@ -17,10 +18,13 @@ function Student() {
             <StudentList />
           </Route>
           <Route path="/dashboard/student/:id/courses" exact>
-            <Courses/>
+            <Courses />
           </Route>
           <Route path="/dashboard/student/:id/coursedetails" exact>
-            <Studentcourse/>
+            <Studentcourse />
+          </Route>
+          <Route path="/dashboard/student/:id/courses/edit" exact>
+            <StudentEditCourses />
           </Route>
           <Route path="/dashboard/student/:id/profile" exact>
             <StudentProfile />
