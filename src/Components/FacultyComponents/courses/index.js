@@ -4,7 +4,8 @@ import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
 import React, { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-bootstrap";
-import "./bootstrap-css/bootstrap.min.css";import { styled } from "@material-ui/core/styles";
+import "./bootstrap-css/bootstrap.min.css";
+import { styled } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
 import mButton from "@material-ui/core/Button";
 
@@ -17,8 +18,7 @@ const CoursesButton = styled(mButton)({
   textTransform: "none",
   fontFamily: "Montserrat",
   // transition: "all 0.9s ease-in-out",
-  background:
-    "#0E2A47",
+  background: "#0E2A47",
   // border: 0,
   // borderRadius: 3,
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
@@ -26,11 +26,9 @@ const CoursesButton = styled(mButton)({
   height: 48,
   padding: "0 30px",
   "&:hover": {
-    background:
-      "#216FC0",
+    background: "#216FC0",
   },
 });
-
 
 function FacultyCourses() {
   const history = useHistory();
@@ -43,16 +41,14 @@ function FacultyCourses() {
           <div className={design.optionname}>Search</div>
         </div>
         <div className={design.heading}>
-          <div className={design.title}> R.Kala's Courses</div>
-          <div className={design.sideback}>
+          <div className={design.title}> Faculty's Courses</div>
+          <div className={design.sideback} onClick={() => history.goBack()}>
             <img src={arrow} alt="hello"></img>
             <div className={design.back}>Move back</div>
           </div>
         </div>
         <div className={design.core}>
           <div className={design.slidecomponent}>
-
-
             <div className={design.slider}>
               <div className={design.courseboxupper}>
                 <div className={design.ctitle}>DBMS</div>
@@ -77,17 +73,16 @@ function FacultyCourses() {
               <div className={design.courseboxupper}>
                 <div className={design.ctitle}>DBMS</div>
               </div>
-            </div><div className={design.slider}>
+            </div>
+            <div className={design.slider}>
               <div className={design.courseboxupper}>
                 <div className={design.ctitle}>DBMS</div>
               </div>
-            </div>           
-            
+            </div>
           </div>
         </div>
         <div className={design.core}>
           <div className={design.slidecomponent}>
-          
             <div className={design.slider}>
               <div className={design.courseboxlower}>
                 <div className={design.ctitle}>DBMS</div>
@@ -118,15 +113,12 @@ function FacultyCourses() {
                 <div className={design.ctitle}>DBMS</div>
               </div>
             </div>
-
-
           </div>
         </div>
 
-        <CoursesButton onClick={()=>history.push(`./courses/edit`)}>Edit courses</CoursesButton>
-
-
-
+        <CoursesButton onClick={() => history.push(`./courses/edit`)}>
+          Edit courses
+        </CoursesButton>
       </div>
     </div>
   );

@@ -18,8 +18,7 @@ const CoursesButton = styled(mButton)({
   textTransform: "none",
   fontFamily: "Montserrat",
   // transition: "all 0.9s ease-in-out",
-  background:
-    "#0E2A47",
+  background: "#0E2A47",
   // border: 0,
   // borderRadius: 3,
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.23)",
@@ -27,11 +26,9 @@ const CoursesButton = styled(mButton)({
   height: 48,
   padding: "0 30px",
   "&:hover": {
-    background:
-      "#216FC0",
+    background: "#216FC0",
   },
 });
-
 
 function Courses() {
   const history = useHistory();
@@ -44,8 +41,8 @@ function Courses() {
           <div className={design.optionname}>Search</div>
         </div>
         <div className={design.heading}>
-          <div className={design.title}> Bhole's Courses</div>
-          <div className={design.sideback}>
+          <div className={design.title}> Student's Courses</div>
+          <div className={design.sideback} onClick={() => history.goBack()}>
             <img src={arrow} alt="hello"></img>
             <div className={design.back}>Move back</div>
           </div>
@@ -92,9 +89,6 @@ function Courses() {
                 </div>
               </div>
             </div>
-
-           
-            
           </div>
         </div>
         <div className={design.core}>
@@ -153,8 +147,9 @@ function Courses() {
           </div>
         </div>
 
-        <CoursesButton onClick={()=>history.push(`./courses/edit`)}>Edit courses</CoursesButton>
-
+        <CoursesButton onClick={() => history.push(`./courses/edit`)}>
+          Edit courses
+        </CoursesButton>
       </div>
     </div>
   );
