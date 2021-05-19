@@ -26,15 +26,18 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-}
-.sideback {
-  display: flex;
-  flex-direction: row;
+  padding: 0 4vw;
 }
 .sideback {
   color: #834bff;
-  font-size: 0.8vw;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
   font-weight: bold;
+  width: fit-content;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
 }
 .ctitle {
   font-size: 1.2rem;
@@ -60,9 +63,6 @@
   overflow-x: auto;
 }
 
-
-
-
 .title {
   font-size: 2vw;
 }
@@ -82,7 +82,7 @@
   margin: 0 0.08vw;
   width: 15vw;
   height: 25vh;
-  background: #F5C0C0;
+  background: #f5c0c0;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.35);
   border-radius: 15px;
 }
@@ -95,7 +95,7 @@
   margin: 0 0.08vw;
   width: 15vw;
   height: 25vh;
-  background: #B8B5FF;
+  background: #b8b5ff;
   box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.35);
   border-radius: 15px;
 }
