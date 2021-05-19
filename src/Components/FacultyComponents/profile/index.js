@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Switch, Route , useParams} from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  useParams,
+} from "react-router-dom";
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import searchbar from "./images/searchbar.svg";
 import arrow from "./images/arrow.svg";
@@ -21,7 +26,7 @@ import {
 import axios from "axios";
 import { url } from "../../../constants";
 import { useHistory } from "react-router-dom";
-import Popup from '../popupcomponent/popup.js';
+import Popup from "../popupcomponent/popup.js";
 
 const genders = [
   {
@@ -93,20 +98,18 @@ const useStyles = {
 let facultyinfo;
 
 function FacultyProfile() {
-
-  const {id} = useParams();
+  const { id } = useParams();
 
   console.log(id);
 
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [facultyID, setFacultyID] = useState('');
-  const [emailaddr, setemailaddr] = useState('');
-  const [batch, setBatch] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [facultyID, setFacultyID] = useState("");
+  const [emailaddr, setemailaddr] = useState("");
+  const [batch, setBatch] = useState("");
   // const [gender, setGender] = useState();
   const [dob, setdob] = useState(null);
-  const [phn, setphn] = useState('');
+  const [phn, setphn] = useState("");
 
   const forFirstName = (event) => {
     setFirstName(event.target.value);
@@ -176,22 +179,22 @@ function FacultyProfile() {
         console.log("Err: ", err);
       });
   }, []);
- 
-  const deleteData=(event)=>{
+
+  const deleteData = (event) => {
     event.preventDefault();
     console.log(" Data -c sent  :", facultyID);
-    axios.post(`${url}api/deletef`, {
-        "FacultyID" : facultyID
-    })
+    axios
+      .post(`${url}api/deletef`, {
+        FacultyID: facultyID,
+      })
       .then((res) => {
         console.log("faculty Id sent for deletion", res);
         history.push("/dashboard/faculty");
       })
       .catch((err) => {
         console.log("Failed to delete faculty ", err);
-      }
-      )
-}; 
+      });
+  };
 
   const sendData = (event) => {
     event.preventDefault();
@@ -284,6 +287,7 @@ function FacultyProfile() {
                 margin="normal"
                 id="date-picker-inline"
                 label="Date of birth"
+                disabled
                 value={selectedDate}
                 onChange={handleDateChange}
                 KeyboardButtonProps={{
@@ -291,7 +295,9 @@ function FacultyProfile() {
                 }}
               />
             </MuiPickersUtilsProvider>
-            <CoursesButton onClick={()=>history.push(`./courses`)}>Assigned Courses</CoursesButton>
+            <CoursesButton onClick={() => history.push(`./courses`)}>
+              Assigned Courses
+            </CoursesButton>
           </div>
           <div className={design.col2}>
             <TextField
@@ -302,6 +308,7 @@ function FacultyProfile() {
               value={facultyID}
               variant="outlined"
               onChange={forFacultyID}
+              disabled
             />
             <TextField
               style={useStyles}
@@ -358,17 +365,22 @@ function FacultyProfile() {
             </button>
 
             <br></br>
-            <button className="btn btn-warning space deleted" onClick={() => setButtonPopup(true)}>Delete Faculty</button>
-
+            <button
+              className="btn btn-warning space deleted"
+              onClick={() => setButtonPopup(true)}
+            >
+              Delete Faculty
+            </button>
           </div>
         </div>
 
-        <Popup trigger={buttonPopup} setTrigger={setButtonPopup} deleteData={deleteData}>
-          <div>
-            Enter the id of the faculty to be deleted
-          </div>
-          <input type="text" value={facultyID} onChange={forFacultyID}> 
-          </input>
+        <Popup
+          trigger={buttonPopup}
+          setTrigger={setButtonPopup}
+          deleteData={deleteData}
+        >
+          <div>Enter the id of the faculty to be deleted</div>
+          <input type="text" value={facultyID} onChange={forFacultyID}></input>
         </Popup>
       </div>
     </>
